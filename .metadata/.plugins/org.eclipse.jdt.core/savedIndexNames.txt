@@ -1,0 +1,16 @@
+INDEX VERSION 1.126+C:\Users\Sam\Documents\GitHub\UCRSpoon\.metadata\.plugins\org.eclipse.jdt.core
+1890556482.index
+2320506173.index
+2359071575.index
+1829529486.index
+3030441829.index
+3038798607.index
+573665919.index
+848856923.index
+4166202503.index
+1582354603.index
+4213385774.index
+640100959.index
+3340978869.index
+1061429937.index
+3105345442.index
