@@ -1,7 +1,6 @@
 package com.backendless.ucrspoon.login;
 
 import java.util.List;
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -32,7 +31,7 @@ public class ReviewActivity extends Activity{
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.review);
-	    Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
+	    Backendless.setUrl( Defaults.SERVER_URL ); 
 		Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
 
 		initUI();
@@ -82,23 +81,20 @@ public class ReviewActivity extends Activity{
 		 {
 			 Dish = "";
 		 }
-		 String whereClause = "Rname = '"+ restaurant + "'"; // query for restaurant name
+		 String whereClause = "Rname = '"+ restaurant + "'"; 
 
 		 BackendlessDataQuery dataQuery = new BackendlessDataQuery();
 		 dataQuery.setWhereClause( whereClause );
-		 Restaurant.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<Restaurant>>() // async call
+		 Restaurant.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<Restaurant>>() 
 		{
-			 //two overides 
 			  @Override
 			  public void handleResponse( BackendlessCollection<Restaurant> response )
 			  {
-				  //check for size of what you got
 				  List<Restaurant> lr = response.getData();
 				  if(lr.size() < 1){
 					  showToast( " Restaurant not found." );
 					  return;
 				  }
-				  //since i'm looking for a name i took for instance
 				  Restaurant firstRestaurant = response.getCurrentPage().get( 0 );
 				  if( !restaurant.equals(firstRestaurant.getRname()))
 				  {
@@ -107,16 +103,18 @@ public class ReviewActivity extends Activity{
 				  }
 				  else
 				  {
-					  //control flow into next Activity
 					  showToast(" Restaurant found");
 					  i.putExtra("restaurant", firstRestaurant.getR_id().toString());
+					  i.putExtra("rnm", restaurant);
 					  i.putExtra("dish", Dish);
+					  i.putExtra("nor", firstRestaurant.getNumOfReviews());
+					  i.putExtra("avgp", firstRestaurant.getAvgPrice());
 					  startActivity (i);
 					  finish();
 				  }
 			  }
 			@Override
-			public void handleFault(BackendlessFault fault) { // does nothing but auto override 
+			public void handleFault(BackendlessFault fault) { 
 				// TODO Auto-generated method stub
 				  return;
 			}
