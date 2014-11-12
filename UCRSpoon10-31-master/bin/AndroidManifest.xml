@@ -37,6 +37,9 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".RegistrationSuccessActivity" />
         <activity android:name=".RestorePasswordActivity" />
+        <activity android:name=".ReviewActivity" />
+        <activity android:name=".Review2Activity" />
+        <activity android:name=".ReviewSuccess" />
                             
         <activity android:name=".LoginSuccessActivity" />
 

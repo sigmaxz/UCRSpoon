@@ -65,8 +65,8 @@ public class LoginActivity extends Activity
   {
     registerLink = (TextView) findViewById( R.id.registerLink );
     restoreLink = (TextView) findViewById( R.id.restoreLink );
-    identityField = (EditText) findViewById( R.id.identityField );
-    passwordField = (EditText) findViewById( R.id.passwordField );
+    identityField = (EditText) findViewById( R.id.RestaurantField );
+    passwordField = (EditText) findViewById( R.id.dishField );
     loginButton = (Button) findViewById( R.id.loginButton );
     rememberLoginBox = (CheckBox) findViewById( R.id.rememberLoginBox );
 

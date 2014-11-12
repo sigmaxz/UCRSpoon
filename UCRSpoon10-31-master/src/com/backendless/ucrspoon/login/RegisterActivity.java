@@ -34,7 +34,7 @@ public class RegisterActivity extends Activity
   }
 
   private void initUI()
-  {emailField = (EditText) findViewById( R.id.emailField );nameField = (EditText) findViewById( R.id.nameField );passwordField = (EditText) findViewById( R.id.passwordField );
+  {emailField = (EditText) findViewById( R.id.emailField );nameField = (EditText) findViewById( R.id.nameField );passwordField = (EditText) findViewById( R.id.dishField );
 
     registerButton = (Button) findViewById( R.id.registerButton );
 

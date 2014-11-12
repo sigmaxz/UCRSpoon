@@ -24,7 +24,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/login_text"
+                android:text="@string/Review"
                 android:textSize="@dimen/text_large"
                 android:paddingLeft="@dimen/dp4"/>
     </LinearLayout>
@@ -44,20 +44,20 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp48"
-                    android:text="@string/login_prompt"
+                    android:text="@string/Resturant"
                     android:textSize="@dimen/text_medium"
                     android:gravity="center_vertical|right"
                     android:layout_marginRight="@dimen/dp4"/>
 
             <EditText
-                    android:layout_width="@dimen/dp144"
-                    android:layout_height="@dimen/dp48"
-                    android:id="@+id/RestaurantField"
-                    android:textSize="@dimen/text_medium"
-                    android:inputType="text"
-                    android:layout_marginLeft="@dimen/dp4"
-                    android:layout_marginRight="@dimen/dp4"
-                    android:gravity="center_vertical"/>
+                android:id="@+id/RestaurantField"
+                android:layout_width="@dimen/dp144"
+                android:layout_height="@dimen/dp48"
+                android:layout_marginLeft="@dimen/dp4"
+                android:layout_marginRight="@dimen/dp4"
+                android:gravity="center_vertical"
+                android:inputType="text"
+                android:textSize="@dimen/text_medium" />
 
             <Space
                     android:layout_width="wrap_content"
@@ -76,56 +76,40 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp48"
-                    android:text="@string/password_prompt"
+                    android:text="@string/dish_optional_"
                     android:textSize="@dimen/text_medium"
                     android:gravity="center_vertical|right"
                     android:layout_marginRight="@dimen/dp4"/>
 
             <EditText
-                    android:layout_width="@dimen/dp144"
-                    android:layout_height="@dimen/dp48"
-                    android:id="@+id/dishField"
-                    android:textSize="@dimen/text_medium"
-                    android:inputType="textPassword"
-                    android:singleLine="false"
-                    android:layout_marginLeft="@dimen/dp4"
-                    android:layout_marginRight="@dimen/dp4"
-                    android:gravity="center_vertical"/>
+                android:id="@+id/dishField"
+                android:layout_width="@dimen/dp144"
+                android:layout_height="@dimen/dp48"
+                android:layout_marginLeft="@dimen/dp4"
+                android:layout_marginRight="@dimen/dp4"
+                android:gravity="center_vertical"
+                android:inputType="textPassword"
+                android:singleLine="false"
+                android:textSize="@dimen/text_medium" />
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/dp48"
-                    android:text="@string/restore_link"
-                    android:id="@+id/restoreLink"
-                    android:textSize="@dimen/text_medium"
-                    android:clickable="true"
-                    android:textColor="@android:color/holo_blue_light"
-                    android:layout_marginLeft="@dimen/dp4"
-                    android:gravity="bottom|right"/>
         </TableRow>
-        <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content"
-                  android:layout_marginTop="@dimen/dp4" android:gravity="center">
-            <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/remember_login_text"
-                    android:id="@+id/rememberLoginBox"/>
-        </TableRow>
+        
     </TableLayout>
 
     <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp48"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="@dimen/dp16"
-            android:layout_marginBottom="@dimen/dp4">
+        android:id="@+id/review_2button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp48"
+        android:layout_marginBottom="@dimen/dp4"
+        android:layout_marginTop="@dimen/dp16"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
 
         <Button
                 android:layout_width="@dimen/dp144"
                 android:layout_height="@dimen/dp48"
-                android:text="@string/login_text"
-                android:id="@+id/loginButton"
+                android:text="@string/submit"
+                android:id="@+id/review_check"
                 android:textSize="@dimen/text_medium"
                 android:layout_marginLeft="@dimen/dp4"/>
     </LinearLayout>

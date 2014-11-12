@@ -32,7 +32,16 @@ public class MainPage extends Activity {
 				}
 			}); // Register the onClick listener with the implementation above
 	        
-	        
+	         Button review_button = (Button)findViewById(R.id.review_button);
+	         review_button.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+				startActivity (new Intent(v.getContext(), ReviewActivity.class));
+					// TODO Auto-generated method stub
+					
+				}
+			});
 	        
 	 }
 	
