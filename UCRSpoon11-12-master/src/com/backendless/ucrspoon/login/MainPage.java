@@ -69,6 +69,16 @@ public class MainPage extends Activity {
 				}
 			});
 	        
+	         Button rate_button = (Button)findViewById(R.id.rate_button);
+	         rate_button.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+				startActivity (new Intent(v.getContext(), RateActivity.class));
+					// TODO Auto-generated method stub
+					
+				}
+			});
 	        
 	        
 	 }

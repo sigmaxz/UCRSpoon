@@ -34,6 +34,7 @@
         <activity android:name=".ReviewActivity" />
         <activity android:name=".Review2Activity" />
         <activity android:name=".ReviewSuccess" />
+        <activity android:name=".RateActivity" />
         <activity android:name=".LoginSuccessActivity" />
         <activity android:name=".UserPage" />
         <activity android:name=".Browse" />

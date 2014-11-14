@@ -11,10 +11,10 @@ public class DefaultCallback<T> extends BackendlessCallback<T>
   private Context context;
   private ProgressDialog progressDialog;
 
-  public DefaultCallback( Context context )
+  public DefaultCallback( Context rateActivity )
   {
-    this.context = context;
-    progressDialog = ProgressDialog.show( context, "", "Loading...", true );
+    this.context = rateActivity;
+    progressDialog = ProgressDialog.show( rateActivity, "", "Loading...", true );
   }
 
   public DefaultCallback( Context context, String message )
