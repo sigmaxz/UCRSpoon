@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UCRSpoon</string>
+    <string name="login_text">Log in</string>
+                                    
+    <string name="register_text">Register</string>
+    <string name="restore_link">restore</string>
+    <string name="password_recovered_message">We sent an email to your email address with a link to a password change page. Please check your email and follow the link for further instructions.</string>
+    <string name="restore_password_page_name">Password Restoration</string>
+    <string name="registration_page_name">Registration</string>
+    <string name="login_prompt">Login:</string>
+    <string name="password_prompt">Password:</string>
+    <string name="password_recovery_page_name">Password Recovery</string>
+    <string name="warning_icon_description">warning icon</string>
+    <string name="remember_login_text">Remember me</string>
+                                        
+    <string name="email_field_prompt">Email:</string>
+                                        
+    <string name="name_field_prompt">Name:</string>
+                                        
+    <string name="password_field_prompt">Password:</string>
+                                        
+    <string name="default_logged_in_text">Login successfully!</string>
+    <string name="default_registered_text">Registered successfully</string>
+                                        
+    <string name="registration_success_message">Thank you for registering with the %1$s. Click the button below to proceed to the login.</string>
+    
+    <string name="login_label">Login</string>
+    <string name="back_label">Redirecting......</string>
+    <string name="register_label">Register</string>
+    <string name="welcome">Welcome to UCRspoon!</string>
+    
+    <string name="cur_user">hi</string>
+    <string name="text_based_search">Search Restaurants: </string>
+    <string name="search_button">Search</string>
+    <string name="browse_button">Browse</string>
+    <string name="near_by_button">Near By</string>
+    <string name="preference_button">Preference</string>
+    
+    <string name="log_out_button">Log out</string>
+    
+    <string name="rest_label">Restaurants</string>
+    <string name="go_back_label">Back"</string>
+                                            
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <string name="tables_list_title">Tables</string>
+    <string name="previous_page_symbol"><![CDATA[<<]]></string>
+    <string name="next_page_symbol"><![CDATA[>>]]></string>
+    <string name="list_row_with_arrow_description">list row arrow</string>
+    <string name="table_operations_title_template">%s table operations</string>
+    <string name="create_record_title_template">Create new %s</string>
+    <string name="run_code_button_text">Browse</string>
+    <string name="send_code_button_text">Send Code by Email</string>
+    <string name="success_title">Success</string>
+    <string name="send_email_title">Send Code by Email</string>
+    <string name="email_address_propmt">Email address:</string>
+    <string name="send_button_text">Send</string>
+    <string name="retrieve_title_template">Retrieve %s objects</string>
+    <string name="default_sample_code_title">Sample Code</string>
+    <string name="delete_title_template">Delete %s</string>
+    <string name="update_title_template">Update %s</string>
+    <string name="success_info_template">New record has been %s.</string>
+    <string name="property_to_show_prompt">Property to show:</string>
+    <string name="find_with_relations_title">Find with Relations</string>
+    <string name="related_property_to_show_prompt">Related property to show:</string>
+    <string name="related_table_name_template">%s:</string>
+    <string name="basic_find_title">Basic Find</string>
+    <string name="property_title">Property</string>
+    <string name="value_title">Value</string>
+    
+    
+    
+    <string name="review">Review</string>
+    <string name="Review">Review</string>
+    <string name="Restaurant">Restaurant</string>
+    <string name="dish_optional_">Dish(optional)</string>
+    <string name="submit">Submit</string>
+    <string name="Resturant">Resturant</string>
+    <string name="ucrspoon">UCRSpoon</string>
+    <string name="dining_cost">Dining Cost</string>
+    <string name="enviornment">Enviornment</string>
+    <string name="service">Service</string>
+    <string name="review_success">Review Success</string>
+    <string name="back">back</string>
+    
+    <string name="Rate">Rate</string>
+    
+    
+    <string name="nearRestaurants">Restaurants near You</string>
+    <string name="title_activity_restaurant_page">RestaurantPage</string>
+    <string name="action_settings">Settings</string>
+    
+    
+
+
+
+
+
+
+</resources>
+                                

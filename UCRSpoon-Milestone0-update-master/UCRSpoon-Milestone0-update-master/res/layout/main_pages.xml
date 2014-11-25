@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:context=".MainPage" >
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/login_label" />
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="@string/register_label" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp192"
+        android:layout_marginBottom="@dimen/dp4"
+        android:layout_marginTop="@dimen/dp48"
+        android:gravity="left"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/BrowseButton"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dp40"
+            android:layout_marginLeft="@dimen/dp4"
+            android:text="@string/browse_button"
+            android:textSize="@dimen/text_medium" />
+
+        <Button
+            android:id="@+id/NearByButton"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dp40"
+            android:layout_marginLeft="@dimen/dp4"
+            android:text="@string/near_by_button"
+            android:textSize="@dimen/text_medium" />
+        <Button
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp40"
+                android:text="@string/search_button"
+                android:id="@+id/SearchButton"
+                android:textSize="@dimen/text_medium"
+                android:layout_marginLeft="@dimen/dp4"/>
+        
+    </LinearLayout>
+
+   
+
+
+
+</RelativeLayout>
