@@ -31,6 +31,7 @@ public class Review2Activity extends Activity{
 	private Button Submit2;
 	
 	private String Cost;
+	private double Costd;
 	private String Envon;
 	private String Service;
 	private String Rn;
@@ -101,16 +102,26 @@ public class Review2Activity extends Activity{
 			 Service = ServiceText;
 		 }
 		 
+		 try{
+			 Costd = Double.parseDouble(Cost);
+		 }
+		 catch(NumberFormatException e){
+			 showToast("Cost is not valid");
+			 return;
+		 }
+		 
 		 review = new Review();
 		 
 		 review.setR_id( getIntent().getStringExtra("restaurant"));
-		 review.setD_id( getIntent().getStringExtra("dish"));
+		 review.setDName( getIntent().getStringExtra("dish"));
+		 review.setUser(Backendless.UserService.CurrentUser().getEmail());
 		 
 		 
 		 if(Cost != NULL)
 		 {
 			 review.setDiningCost(Cost);
 		 }
+		 
 		 
 		 if(Envon != NULL)
 		 {
@@ -164,7 +175,10 @@ public class Review2Activity extends Activity{
 					  double avgp =  getIntent().getDoubleExtra("avgp", 0);
 					  int nor = getIntent().getIntExtra("nor", 0);
 					  double rtotal = avgp * nor;
-					  firstRestaurant.setAvgPrice((rtotal + Integer.parseInt(Cost))/( nor + 1) );
+					  double avg = (rtotal + Costd)/( nor + 1);
+					  String avgs = String.format("%.2f", avg);
+					  avg = Double.parseDouble(avgs);
+					  firstRestaurant.setAvgPrice( avg );
 					  firstRestaurant.setNumOfReviews(nor +1);
 					  firstRestaurant.saveAsync(new DefaultCallback<Restaurant>(Review2Activity.this)
 					  {

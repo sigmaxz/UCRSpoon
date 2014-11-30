@@ -27,17 +27,17 @@ public final class R {
 	public static final class id {
 		public static final int emailAddressEdit = 0x7f08004e;
 		public static final int entitiesList = 0x7f080052;
-		public static final int itemName = 0x7f080015;
+		public static final int itemName = 0x7f080016;
 		public static final int nextPageButton = 0x7f080054;
 		public static final int operationInfo = 0x7f080042;
 		public static final int previousPageButton = 0x7f080053;
-		public static final int propertiesList = 0x7f080013;
-		public static final int property = 0x7f080025;
-		public static final int propertyHint = 0x7f080011;
+		public static final int propertiesList = 0x7f080014;
+		public static final int property = 0x7f080026;
+		public static final int propertyHint = 0x7f080012;
 		public static final int propertyName = 0x7f080051;
 		public static final int relatedPropertiesList = 0x7f080030;
 		public static final int relatedTableName = 0x7f08002f;
-		public static final int relativeLayout = 0x7f080014;
+		public static final int relativeLayout = 0x7f080015;
 		public static final int retrieveOptionsList = 0x7f08004b;
 		public static final int retrieveTitle = 0x7f08004a;
 		public static final int runCodeButton = 0x7f08003f;
@@ -50,10 +50,10 @@ public final class R {
 		public static final int successInfo = 0x7f080041;
 		public static final int tableOperationsList = 0x7f08004d;
 		public static final int tableOperationsTitle = 0x7f08004c;
-		public static final int tablesList = 0x7f080007;
+		public static final int tablesList = 0x7f080008;
 		public static final int title = 0x7f080001;
-		public static final int value = 0x7f080026;
-		public static final int valueHint = 0x7f080012;
+		public static final int value = 0x7f080027;
+		public static final int valueHint = 0x7f080013;
 	}
 	public static final class layout {
 		public static final int entity_properties = 0x7f030004;

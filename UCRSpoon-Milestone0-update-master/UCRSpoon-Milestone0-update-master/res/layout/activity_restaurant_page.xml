@@ -58,12 +58,21 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <Button
+        android:id="@+id/rateB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/acReview"
+        android:layout_alignBottom="@+id/acReview"
+        android:layout_alignRight="@+id/ratingBar1"
+        android:text="@string/Rate" />
+
+    <Button
         android:id="@+id/acReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/ratingBar1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="54dp"
+        android:layout_alignLeft="@+id/ratingBar1"
+        android:layout_marginBottom="51dp"
         android:text="Reviews" />
 
 </RelativeLayout>

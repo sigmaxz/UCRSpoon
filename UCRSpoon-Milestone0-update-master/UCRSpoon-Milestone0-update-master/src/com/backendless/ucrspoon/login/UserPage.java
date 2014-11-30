@@ -42,27 +42,6 @@ public class UserPage extends Activity {
 			}
 		}); // Logout the onClick listener with the implementation above
    
-        Button review_button = (Button)findViewById(R.id.review_button);
-        review_button.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-			startActivity (new Intent(v.getContext(), ReviewActivity.class));
-				// TODO Auto-generated method stub
-				
-			}
-		});
-        
-        Button rate_button = (Button)findViewById(R.id.rate_button);
-        rate_button.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-			startActivity (new Intent(v.getContext(), RateActivity.class));
-				// TODO Auto-generated method stub
-				
-			}
-		});   
         
         Button button1 = (Button)findViewById(R.id.NearByButton);    // only records 
         button1.setOnClickListener(new View.OnClickListener() {
