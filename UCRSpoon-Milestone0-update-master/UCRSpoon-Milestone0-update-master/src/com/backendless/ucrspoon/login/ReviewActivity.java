@@ -78,7 +78,7 @@ public class ReviewActivity extends Activity{
 		 
 		 if(DishText != NULL && !DishText.contentEquals("") )
 		 {
-			 dish = DishText;
+			 dish = DishText.substring(0,1).toUpperCase() + DishText.substring(1).toLowerCase();
 			 BackendlessDataQuery dq = new BackendlessDataQuery();
 			 String wc = "R_id = '" + Integer.toString(getIntent().getIntExtra("sid",0)) + "'";
 			 wc = wc + " And Name = '" + dish + "'";
