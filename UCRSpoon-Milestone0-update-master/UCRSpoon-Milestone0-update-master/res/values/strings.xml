@@ -107,7 +107,8 @@
     <string name="action_settings">Settings</string>
     <string name="upload">Picture(Optional)</string>
     <string name="Continue">Continue</string>
-    <string name="upload2">Upload</string>
+    <string name="upload2">Pick from Gallery</string>
+    <string name="takeP">Take Picture</string>
     
     
 
