@@ -55,20 +55,9 @@ public class NearbyRestaurant extends Activity {
 		  LocationListener ll = new mylocationlistener(); 
 		  lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll); // THE FUNCTION THAT UPDATES
 		  
-
-//It takes time to get location
-		  //wait
-		  //Log.v("HI","H");
-		 //while (latitude == 0 && longitude == 0)
-			//Log.v("SLEEPING","DONE");
 			Query query = new Query();
 			query.execute();
-		
-		
-		//String whereClause = "Longitude = " +longitude AND Latitude = 33.91";
-
-		//This line causes app to fail
-		//BackendlessCollection<Restaurant> result = Backendless.Persistence.of( Restaurant.class ).find( dataQuery ); 
+ 
 	}
 	private class Query extends AsyncTask<Void,Void,Void> {
 
@@ -94,34 +83,22 @@ public class NearbyRestaurant extends Activity {
 			dataQuery.setWhereClause( whereClause );
 			Restaurant.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<Restaurant>>() // async call
 			{		
-				//resultCollection = response;
-				 //two overides 
-
 				  @Override
 				  public void handleResponse(BackendlessCollection<Restaurant> response )
 				  {
-					 // super.handleResponse(response);
-					  //resultCollection = response;
-					  //check for size of what you got
-					  Log.d("HO","TEST");
-					  //Log.v("mSDF",String.format("%.2f", latitude));
 					  List<Restaurant> lr = response.getData();
 					 
 					  
 					  if(lr.size() < 1){
-						  Log.d("DDD","LLLLL");
-						  //showToast( " Restaurant not found." );
 						  return;
 					  }
 					  
 					   Restaurant firstRestaurant = response.getCurrentPage().get( 0 );
-					  //Log.d("Rname", lr.get(0).getRname());
-					  //since i'm looking for a name i took for instance
+
 					   restaurantlist = new String[lr.size()];
 					  
 					   for(int i = 0; i < lr.size();i++)
 					  {
-						  	Log.v("TEST", lr.get(i).getRname());
 						  	restaurantlist[i] = lr.get(i).getRname() + "\n\n" +
 						  						"Description: " + lr.get(i).getDescription() + "\n" +
 						  						"Cuisine Type: " +lr.get(i).getCuisineType() +"\n"+
@@ -129,7 +106,6 @@ public class NearbyRestaurant extends Activity {
 						  						"Avg. Price: " + lr.get(i).getAvgPrice() + "\n";
 					  }
 						//Print out list
-						Log.v("DORK","EN");
 						populateListView();
 							
 				}

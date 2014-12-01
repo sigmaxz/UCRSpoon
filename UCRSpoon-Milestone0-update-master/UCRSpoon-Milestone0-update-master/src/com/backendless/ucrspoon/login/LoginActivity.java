@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -109,7 +110,7 @@ public class LoginActivity extends Activity
 
   public void onLoginButtonClicked()
   {
-    String identity = identityField.getText().toString();
+    final String identity = identityField.getText().toString();
     String password = passwordField.getText().toString();
     boolean rememberLogin = rememberLoginBox.isChecked();
 
@@ -118,7 +119,18 @@ public class LoginActivity extends Activity
       public void handleResponse( BackendlessUser backendlessUser )
       {
         super.handleResponse( backendlessUser );
-        startActivity( new Intent( LoginActivity.this, LoginSuccessActivity.class ) );
+        
+        if((Boolean) backendlessUser.getProperty("isRestaurant"))
+        {
+        	Log.v("true","true");
+        }
+        else
+        {
+        	startActivity( new Intent( LoginActivity.this, LoginSuccessActivity.class ) );
+        	Log.v("false","false");
+        }
+        //Log.v("LOGIN",backendlessUser.getProperty("isRestaurant").toString());
+        Log.v("sdadff","sasdfdf");
         finish();
       }
     }, rememberLogin );
