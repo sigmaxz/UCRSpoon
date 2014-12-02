@@ -61,6 +61,19 @@ int sid;
 			}
 		});
         
+        Button gallery_button = (Button)findViewById(R.id.gal);
+        gallery_button.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			Intent i = new Intent(v.getContext(), GalleryActivity.class);
+			i.putExtra("sid", sid);
+			startActivity (i);
+				// TODO Auto-generated method stub
+				
+			}
+		});
+        
         Button rate_button = (Button)findViewById(R.id.rateB);
         rate_button.setOnClickListener(new View.OnClickListener() {
 			

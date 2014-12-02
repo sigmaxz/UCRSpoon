@@ -238,7 +238,7 @@ public class ReviewActivity extends Activity{
 						    {
 						    	//save to table Pictures
 						    	bpic = new Pictures();
-						    	bpic.setFileLocation(name);
+						    	bpic.setFileLocation(backendlessFile.getFileURL());
 						    	bpic.setUser(Backendless.UserService.CurrentUser().getEmail());
 						    	bpic.setR_id(Integer.toString(getIntent().getIntExtra("sid", 0)));
 						    	

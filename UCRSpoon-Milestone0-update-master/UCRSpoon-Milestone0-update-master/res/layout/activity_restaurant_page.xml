@@ -75,4 +75,13 @@
         android:layout_marginBottom="51dp"
         android:text="Reviews" />
 
+    <Button
+        android:id="@+id/gal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/avgPrice"
+        android:layout_alignRight="@+id/rateB"
+        android:layout_centerVertical="true"
+        android:text="@string/gal" />
+
 </RelativeLayout>

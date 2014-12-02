@@ -22,52 +22,52 @@ public final class R {
 		public static final int text_medium = 0x7f040002;
 	}
 	public static final class drawable {
-		public static final int icon = 0x7f020000;
+		public static final int icon = 0x7f020001;
 	}
 	public static final class id {
-		public static final int emailAddressEdit = 0x7f08004f;
-		public static final int entitiesList = 0x7f080053;
-		public static final int itemName = 0x7f080016;
-		public static final int nextPageButton = 0x7f080055;
-		public static final int operationInfo = 0x7f080043;
-		public static final int previousPageButton = 0x7f080054;
-		public static final int propertiesList = 0x7f080014;
-		public static final int property = 0x7f080026;
-		public static final int propertyHint = 0x7f080012;
-		public static final int propertyName = 0x7f080052;
-		public static final int relatedPropertiesList = 0x7f080030;
-		public static final int relatedTableName = 0x7f08002f;
-		public static final int relativeLayout = 0x7f080015;
-		public static final int retrieveOptionsList = 0x7f08004c;
-		public static final int retrieveTitle = 0x7f08004b;
-		public static final int runCodeButton = 0x7f080040;
-		public static final int sampleCodeEdit = 0x7f08003f;
-		public static final int sampleCodeTitle = 0x7f08003e;
-		public static final int sendButton = 0x7f080050;
-		public static final int sendCodeButton = 0x7f080041;
-		public static final int showByPropertyTitle = 0x7f080051;
-		public static final int showPropertyTitle = 0x7f080056;
-		public static final int successInfo = 0x7f080042;
-		public static final int tableOperationsList = 0x7f08004e;
-		public static final int tableOperationsTitle = 0x7f08004d;
-		public static final int tablesList = 0x7f080008;
+		public static final int emailAddressEdit = 0x7f080053;
+		public static final int entitiesList = 0x7f080057;
+		public static final int itemName = 0x7f08001b;
+		public static final int nextPageButton = 0x7f080059;
+		public static final int operationInfo = 0x7f080047;
+		public static final int previousPageButton = 0x7f080058;
+		public static final int propertiesList = 0x7f080015;
+		public static final int property = 0x7f08002a;
+		public static final int propertyHint = 0x7f080013;
+		public static final int propertyName = 0x7f080056;
+		public static final int relatedPropertiesList = 0x7f080034;
+		public static final int relatedTableName = 0x7f080033;
+		public static final int relativeLayout = 0x7f08001a;
+		public static final int retrieveOptionsList = 0x7f080050;
+		public static final int retrieveTitle = 0x7f08004f;
+		public static final int runCodeButton = 0x7f080044;
+		public static final int sampleCodeEdit = 0x7f080043;
+		public static final int sampleCodeTitle = 0x7f080042;
+		public static final int sendButton = 0x7f080054;
+		public static final int sendCodeButton = 0x7f080045;
+		public static final int showByPropertyTitle = 0x7f080055;
+		public static final int showPropertyTitle = 0x7f08005a;
+		public static final int successInfo = 0x7f080046;
+		public static final int tableOperationsList = 0x7f080052;
+		public static final int tableOperationsTitle = 0x7f080051;
+		public static final int tablesList = 0x7f080009;
 		public static final int title = 0x7f080001;
-		public static final int value = 0x7f080027;
-		public static final int valueHint = 0x7f080013;
+		public static final int value = 0x7f08002b;
+		public static final int valueHint = 0x7f080014;
 	}
 	public static final class layout {
 		public static final int entity_properties = 0x7f030004;
-		public static final int list_item_with_arrow = 0x7f030005;
-		public static final int property_row = 0x7f03000a;
-		public static final int related_show_property_template = 0x7f03000e;
-		public static final int sample_code_template = 0x7f030014;
-		public static final int sample_success = 0x7f030015;
-		public static final int select_retrieval_type = 0x7f030019;
-		public static final int select_table = 0x7f03001a;
-		public static final int select_table_operation = 0x7f03001b;
-		public static final int send_email = 0x7f03001c;
-		public static final int show_by_property = 0x7f03001d;
-		public static final int show_property_template = 0x7f03001e;
+		public static final int list_item_with_arrow = 0x7f030006;
+		public static final int property_row = 0x7f03000b;
+		public static final int related_show_property_template = 0x7f03000f;
+		public static final int sample_code_template = 0x7f030015;
+		public static final int sample_success = 0x7f030016;
+		public static final int select_retrieval_type = 0x7f03001a;
+		public static final int select_table = 0x7f03001b;
+		public static final int select_table_operation = 0x7f03001c;
+		public static final int send_email = 0x7f03001d;
+		public static final int show_by_property = 0x7f03001e;
+		public static final int show_property_template = 0x7f03001f;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f060000;
