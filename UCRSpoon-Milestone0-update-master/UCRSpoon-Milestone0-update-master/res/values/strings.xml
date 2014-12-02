@@ -75,5 +75,7 @@
     <string name="title_activity_logged_in__restaurant">LoggedIn_Restaurant</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_odering">Odering</string>
+    <string name="title_activity_set_menu">SetMenu</string>
+    <string name="title_activity_ordering2">Ordering2</string>
 
 </resources>

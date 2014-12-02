@@ -34,12 +34,42 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/input_partySize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:ems="10"
         android:inputType="number" />
+
+    <ListView
+        android:id="@+id/list_TableLoc"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_above="@+id/button_Next"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:listSelector="@drawable/list_selector" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/button_Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/list_TableLoc"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Next" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/list_TableLoc"
+        android:layout_below="@+id/input_partySize"
+        android:layout_marginTop="22dp"
+        android:text="Here is a list of table locations. Please select one."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

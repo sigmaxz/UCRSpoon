@@ -76,7 +76,6 @@ public class NearbyRestaurant extends Activity {
 			longitude_min = longitude - .1;
 			latitude_max = latitude +.1;
 			latitude_min = latitude -.1;
-			
 			String whereClause = "Longitude < " +longitude_max + " AND Longitude > " +longitude_min+" AND "+
 			"Latitude < " + latitude_max + " AND Latitude > " + longitude_min; 
 			BackendlessDataQuery dataQuery = new BackendlessDataQuery();
@@ -89,11 +88,10 @@ public class NearbyRestaurant extends Activity {
 					  List<Restaurant> lr = response.getData();
 					 
 					  
-					  if(lr.size() < 1){
+					  if(lr.size() < 1){ 
 						  return;
 					  }
-					  
-					   Restaurant firstRestaurant = response.getCurrentPage().get( 0 );
+					 
 
 					   restaurantlist = new String[lr.size()];
 					  
@@ -104,15 +102,16 @@ public class NearbyRestaurant extends Activity {
 						  						"Cuisine Type: " +lr.get(i).getCuisineType() +"\n"+
 						  						"Ratings: " + lr.get(i).getRating() + "\n" +
 						  						"Avg. Price: " + lr.get(i).getAvgPrice() + "\n";
+
 					  }
 						//Print out list
 						populateListView();
+						
 							
 				}
 				@Override
 				public void handleFault(BackendlessFault fault) { // does nothing but auto override 
 					// TODO Auto-generated method stub
-
 					  return;
 				}
 			});

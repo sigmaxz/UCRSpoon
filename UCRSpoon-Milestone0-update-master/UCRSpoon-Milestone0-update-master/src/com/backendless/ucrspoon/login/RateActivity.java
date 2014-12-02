@@ -121,7 +121,8 @@ public class RateActivity extends Activity{
 					  double rating =  firstRestaurant.getRating();
 					  int nor = firstRestaurant.getNumOfRate();
 					  double rtotal = rating * nor;
-					  firstRestaurant.setRating((rtotal + Integer.parseInt(rate))/( nor + 1) );
+					  //Lance, I tried to fix the problem by converting it into int
+					  firstRestaurant.setRating((int) ((rtotal + Integer.parseInt(rate))/( nor + 1)) );
 					  firstRestaurant.setNumOfRate(nor + 1);
 					  firstRestaurant.saveAsync(new DefaultCallback<Restaurant>(RateActivity.this)
 					  {

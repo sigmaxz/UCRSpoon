@@ -57,6 +57,14 @@
             android:name=".Odering"
             android:label="@string/title_activity_odering" >
         </activity>
+        <activity
+            android:name=".SetMenu"
+            android:label="@string/title_activity_set_menu" >
+        </activity>
+        <activity
+            android:name=".Ordering2"
+            android:label="@string/title_activity_ordering2" >
+        </activity>
     </application>
 
 </manifest>

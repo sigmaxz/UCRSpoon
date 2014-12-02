@@ -104,7 +104,7 @@ public class Review2Activity extends Activity{
 		 review = new Review();
 		 
 		 review.setR_id( getIntent().getStringExtra("restaurant"));
-		 review.setD_id( getIntent().getStringExtra("dish"));
+		 //review.setD_id( getIntent().getStringExtra("dish"));
 		 
 		 
 		 if(Cost != NULL)

@@ -29,7 +29,7 @@ public class LoginSuccessActivity extends Activity
     			finally
     			{
     				//Modified by Lance
-    				//I'm just transfering the User name to User Page
+    				//I'm just transferring the User name to User Page
     				Bundle extras = getIntent().getExtras();
     				Intent i = new Intent(getBaseContext(), UserPage.class);
     				if(extras != null) {

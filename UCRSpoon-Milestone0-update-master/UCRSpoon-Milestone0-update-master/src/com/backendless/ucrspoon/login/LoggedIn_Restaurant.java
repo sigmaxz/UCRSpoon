@@ -1,5 +1,9 @@
 package com.backendless.ucrspoon.login;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import com.backendless.Backendless;
 
 import android.app.Activity;
@@ -10,18 +14,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class LoggedIn_Restaurant extends Activity {
 
 	String name = "Restaurant Name Unavailable";
+	HashMap<String, List<String>> Movies_category;
+	List<String> Movies_list;
+	ExpandableListView Exp_list;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_logged_in__restaurant);
-
 		
 		//Retrieve extras
 		Bundle extras = getIntent().getExtras();
@@ -43,6 +50,15 @@ public class LoggedIn_Restaurant extends Activity {
 					title.setText("MSGs");
 				}
 				});
+	       Button Menu = (Button)findViewById(R.id.button3);    // only records 
+	       Menu.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(v.getContext(), SetMenu.class);
+					intent.putExtra("name", name);
+					startActivity(intent);
+				}
+				});
 		//Set Title
 		getActionBar().setTitle(name);
 		
@@ -52,7 +68,7 @@ public class LoggedIn_Restaurant extends Activity {
 					LoggedIn_Restaurant.this,		 			//COntext for this activity
 					R.layout.restaurat_list, //Layout to be use(create)
 					hi);				//Items to be displayed
-			ListView list = (ListView)findViewById(R.id.listView1);
+			ListView list = (ListView)findViewById(R.id.list_DishCategory);
 			list.setAdapter(adapter);
 			//registerClickCallback();
 
@@ -77,3 +93,4 @@ public class LoggedIn_Restaurant extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 }
+
