@@ -14,14 +14,21 @@ import com.backendless.BackendlessUser;
 
 public class UserPage extends Activity {
 	
-	  private Button searchButton, logout_button, browse_button;
-
+	  private Button searchButton, logout_button, browse_button, order;
+	  String name;
 	 public void onCreate( Bundle savedInstanceState )
 	  {
 	    super.onCreate( savedInstanceState );
 	    setContentView( R.layout.user_page);
 	    
-
+	    Bundle extras = getIntent().getExtras();
+	   
+		if(extras != null) {
+			name = extras.getString("name");
+		}
+		TextView displayUserName = (TextView)findViewById(R.id.displayUserName);
+		displayUserName.setText(name);
+		
 	    logout_button = (Button)findViewById(R.id.LogOutButton);    // only records 
         logout_button.setOnClickListener(new View.OnClickListener() {
 			@Override

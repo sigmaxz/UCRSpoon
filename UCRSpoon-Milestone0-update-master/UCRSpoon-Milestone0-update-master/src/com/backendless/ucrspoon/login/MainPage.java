@@ -48,8 +48,8 @@ public class MainPage extends Activity {
 			}); // Register the onClick listener with the implementation above
 	         
        
-	         Button button1 = (Button)findViewById(R.id.NearByButton);    // only records 
-	         button1.setOnClickListener(new View.OnClickListener() {
+	         Button nearbyButton = (Button)findViewById(R.id.NearByButton);    // only records 
+	         nearbyButton.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {				
 				startActivity (new Intent(v.getContext(), NearbyRestaurant.class));   // goes to MyCamera.java
@@ -63,6 +63,18 @@ public class MainPage extends Activity {
 		 			@Override
 		 			public void onClick(View v) {
 		 				onSearchButtonClicked();
+		 			}	
+		 		});
+		 	    
+		 	   //Temporary button to make testing for Pre-Order easier
+		 	    //Orders from abc
+		 	 Button button1 = (Button)findViewById(R.id.button1);
+		 	    button1.setOnClickListener(new View.OnClickListener() {	
+		 			@Override
+		 			public void onClick(View v) {
+		 				Intent i = new Intent(v.getContext(), Odering.class);
+		 				i.putExtra("name", "abc" );
+		 				startActivity(i);
 		 			}	
 		 		});
 		        

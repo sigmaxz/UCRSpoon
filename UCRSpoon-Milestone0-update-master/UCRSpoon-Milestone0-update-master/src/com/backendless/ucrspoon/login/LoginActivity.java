@@ -119,18 +119,24 @@ public class LoginActivity extends Activity
       public void handleResponse( BackendlessUser backendlessUser )
       {
         super.handleResponse( backendlessUser );
-        
+        /*Authored by Lance Tadiosa
+         * At this point I assume that login has been verified and that we only need to go to another page
+         * I simply check whether a user is a restaurant
+        */
         if((Boolean) backendlessUser.getProperty("isRestaurant"))
         {
-        	Log.v("true","true");
+        	//User is a restaurant
+        	Intent intent = new Intent( LoginActivity.this, LoggedIn_Restaurant.class);
+        	intent.putExtra("name", backendlessUser.getProperty("name").toString());
+        	startActivity(intent);
         }
         else
         {
-        	startActivity( new Intent( LoginActivity.this, LoginSuccessActivity.class ) );
-        	Log.v("false","false");
+        	//User is a customer
+        	Intent intent = new Intent( LoginActivity.this, LoginSuccessActivity.class);
+        	intent.putExtra("name",backendlessUser.getProperty("name").toString());
+        	startActivity(intent);
         }
-        //Log.v("LOGIN",backendlessUser.getProperty("isRestaurant").toString());
-        Log.v("sdadff","sasdfdf");
         finish();
       }
     }, rememberLogin );

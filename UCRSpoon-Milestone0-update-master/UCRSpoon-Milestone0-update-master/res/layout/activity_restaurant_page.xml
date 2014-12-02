@@ -66,4 +66,13 @@
         android:layout_marginBottom="54dp"
         android:text="Reviews" />
 
+    <Button
+        android:id="@+id/button_Order2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ratingBar1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Order" />
+
 </RelativeLayout>

@@ -10,10 +10,13 @@ import com.backendless.persistence.BackendlessDataQuery;
 import com.backendless.ucrspoon.data.Restaurant;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,43 +38,37 @@ String whereClause;
 		
 		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
 		Backendless.initApp( RestaurantPage.this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
-
+		
+		 Button order = (Button)findViewById(R.id.button_Order2);  
+         order.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {				
+				startActivity(new Intent(v.getContext(), Odering.class));
+			}
+		}); 
 		
 
-		
+		//Retrieve extras
 		Bundle extras = getIntent().getExtras();
-		Log.v("SDF","O");//			name.setText(extras.getString("Rname"));
-		//description.setText(extras.getString("Description"));
-
 		if(extras != null) {
-			Log.v("SDF","DDDO");
 			Rname = extras.getString("Rname");
 		}
 		
 				whereClause = "Rname = '" +Rname+ "'" ; 
-				Log.v("HOOO",whereClause);
 				BackendlessDataQuery dataQuery = new BackendlessDataQuery();
 				dataQuery.setWhereClause( whereClause );
-				Log.v("OSSS","THERE");
 				Restaurant.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<Restaurant>>() // async call
 				{		
-					//resultCollection = response;
-					 //two overides 
-
 					  @Override
 					  public void handleResponse(BackendlessCollection<Restaurant> response )
 					  {
 						  List<Restaurant> lr = response.getData(); 
 						  
 						  if(lr.size() < 1){
-							  Log.d("DDD","AAAAAA");
-							  //showToast( " Restaurant not found." );
 							  return;
 						  }
 						  
 						   Restaurant restaurant = response.getCurrentPage().get( 0 );
-						   Log.v("TEST222",restaurant.getRname());
-						   Log.v("DDDSS",restaurant.getRname());
 							TextView name = (TextView)findViewById(R.id.title);
 							TextView description = (TextView)findViewById(R.id.description);
 							TextView cuisinetype = (TextView)findViewById(R.id.cuisinetype);
@@ -91,28 +88,10 @@ String whereClause;
 					@Override
 					public void handleFault(BackendlessFault fault) { // does nothing but auto override 
 						// TODO Auto-generated method stub
-						Log.v("CHEES","GOAAA");
-						Log.v("ERROR", fault.getCode());
-						//Log.v("ERROR", fault.getDetail());
-						Log.v("ERROR", fault.getMessage());
-						Log.v("ERROR", fault.toString());
-
 
 						  return;
 					}
 				});
-				//Log.v("DDDSS", sname);
-				//final String sname2 = sname;
-				//Log.v("SSS",sname);
-				//Log.v("YU",sname);
-				if(sname == null)
-				{
-					Log.v("ki","jj");
-				}
-				//Toast.makeText(RestaurantPage.this, sname, Toast.LENGTH_LONG).show();
-	
-		
-		
 	}
 
 	@Override

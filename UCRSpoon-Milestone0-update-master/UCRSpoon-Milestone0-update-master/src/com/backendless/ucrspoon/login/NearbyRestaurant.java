@@ -123,15 +123,11 @@ public class NearbyRestaurant extends Activity {
 	}
 	
 	private void populateListView(){
-		String[] myItems = {"Blue\n hi","Green", "Purple","Red"};
-		Log.v("POP","GO");
 		ArrayAdapter<String> adapter;
-		Log.v("HHHHHH","DFDDFAAA");
 		adapter = new ArrayAdapter<String>(
 				NearbyRestaurant.this,		 			//COntext for this activity
 				R.layout.restaurat_list, //Layout to be use(create)
 				restaurantlist);				//Items to be displayed
-		Log.v("HH","DFD");
 		ListView list = (ListView)findViewById(R.id.restaurant_list);
 		list.setAdapter(adapter);
 		registerClickCallback();
@@ -152,7 +148,6 @@ public class NearbyRestaurant extends Activity {
 			public void onItemClick(AdapterView<?> parent, View viewClicked,
 					int position, long id) {
 					TextView textView=(TextView)viewClicked;
-					Log.v("OMG","TOAT");
 					
 					Intent intent = new Intent(NearbyRestaurant.this, RestaurantPage.class);
 					String[] separated = textView.getText().toString().split("\n");
