@@ -320,6 +320,7 @@ public class SelectBrowseOperationActivity extends Activity
 				
 				Intent intent = new Intent(SelectBrowseOperationActivity.this, RestaurantPage.class);
 				String[] separated = text1.getText().toString().split("\nDescription");
+				Log.v("asdf",separated[0]);
 				intent.putExtra("Rname",separated[0]);
 				// for recommendation page: add counter to each restaurant 
 				 

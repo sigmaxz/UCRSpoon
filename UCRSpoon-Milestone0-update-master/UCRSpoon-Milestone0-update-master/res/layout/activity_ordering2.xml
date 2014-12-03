@@ -9,8 +9,66 @@
     tools:context="com.backendless.ucrspoon.login.Ordering2" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Menu"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:text="Select an Item Category"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ListView
+        android:id="@+id/list_menuCategories"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/itemPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/list_menuCategories"
+        android:layout_centerVertical="true"
+        android:text="Select an Item from"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ListView
+        android:id="@+id/list_menuItems"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignLeft="@+id/itemPrompt"
+        android:layout_below="@+id/itemPrompt" 
+        android:listSelector="@drawable/list_selector">
+    </ListView>
+
+    <Button
+        android:id="@+id/button_orderItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/list_menuItems"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/textView1"
+        android:text="Order Item" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_orderItem"
+        android:layout_alignBottom="@+id/button_orderItem"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/textView1"
+        android:text="View Cart" />
 
 </RelativeLayout>

@@ -39,6 +39,7 @@ public class NearbyRestaurant extends Activity {
 	double latitude_max;
 	double latitude_min;
 	String[] restaurantlist;
+	String[] list_R_id;
 	
 	
 	
@@ -94,6 +95,7 @@ public class NearbyRestaurant extends Activity {
 					 
 
 					   restaurantlist = new String[lr.size()];
+					   list_R_id = new String[lr.size()];
 					  
 					   for(int i = 0; i < lr.size();i++)
 					  {
@@ -102,6 +104,7 @@ public class NearbyRestaurant extends Activity {
 						  						"Cuisine Type: " +lr.get(i).getCuisineType() +"\n"+
 						  						"Ratings: " + lr.get(i).getRating() + "\n" +
 						  						"Avg. Price: " + lr.get(i).getAvgPrice() + "\n";
+						  	list_R_id[i] = String.valueOf(lr.get(i).getR_id());
 
 					  }
 						//Print out list
@@ -146,12 +149,11 @@ public class NearbyRestaurant extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View viewClicked,
 					int position, long id) {
-					TextView textView=(TextView)viewClicked;
+					//TextView textView=(TextView)viewClicked;
 					
 					Intent intent = new Intent(NearbyRestaurant.this, RestaurantPage.class);
-					String[] separated = textView.getText().toString().split("\n");
-					intent.putExtra("Rname",separated[0]);
-					//Toast.makeText(NearbyRestaurant.this, separated[2], Toast.LENGTH_LONG).show();
+					//String[] separated = textView.getText().toString().split("\n");
+					intent.putExtra("R_id",list_R_id[position]);
 					startActivity (intent);
 					
 				// TODO Auto-generated method stub

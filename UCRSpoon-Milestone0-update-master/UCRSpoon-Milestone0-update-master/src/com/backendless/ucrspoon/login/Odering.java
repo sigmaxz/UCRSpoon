@@ -16,17 +16,20 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 public class Odering extends Activity {
 
 	String whereClause;
-	String name;
+	String R_id;
+	String tableLocation = "No Preference";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +42,10 @@ public class Odering extends Activity {
 		//Retrieve extras
 		Bundle extras = getIntent().getExtras();
 		if(extras != null) {
-			name = extras.getString("name");
+			R_id = extras.getString("R_id");
 		}
 		
-		whereClause = "Rname = '"+name+ "'"; Log.v("ssdf",whereClause);
+		whereClause = "R_id = '"+R_id+ "'";
 		BackendlessDataQuery dataQuery = new BackendlessDataQuery();
 		dataQuery.setWhereClause( whereClause );
 		Restaurant.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<Restaurant>>() // async call
@@ -70,8 +73,9 @@ public class Odering extends Activity {
 							Odering.this,		 			//COntext for this activity
 							R.layout.restaurat_list, //Layout to be use(create)
 							tableLocations);				//Items to be displayed
-					ListView list = (ListView)findViewById(R.id.list_TableLoc); Log.v("d","f");
+					ListView list = (ListView)findViewById(R.id.list_TableLoc); 
 					list.setAdapter(adapter);
+					registerClickCallback();
 
 				  
 				   return;
@@ -89,12 +93,38 @@ public class Odering extends Activity {
 				
 				@Override
 				public void onClick(View v) {
+					
+					TimePicker time = (TimePicker)findViewById(R.id.timePicker_diningTime);
+					//Check if time entered is valid
+					//Get Hour
+					String hour;
+					if(time.getCurrentHour() % 12 == 0)
+					{
+						hour = "12";
+					}
+					else
+					{
+						hour = String.valueOf(time.getCurrentHour() % 12);
+					}
+					//Get am or pm
+					String am_or_pm;
+					if(time.getCurrentHour() >= 12)
+					{
+						am_or_pm = "pm";
+					}
+					else
+					{
+						am_or_pm = "am";
+					}
+					
 					EditText partySize = (EditText)findViewById(R.id.input_partySize);
 					
 					Intent intent = new Intent(v.getContext(), Ordering2.class);
-					intent.putExtra("time", "");
-					intent.putExtra("partySize", partySize.getText());
-					intent.putExtra("tableLocation", "");
+					Bundle bundle = new Bundle();
+					intent.putExtra("time", hour + ":" + time.getCurrentMinute().toString() + " " + am_or_pm );
+					intent.putExtra("partySize", partySize.getText().toString());
+					intent.putExtra("tableLocation", tableLocation);
+					intent.putExtra("R_id", R_id);
 					startActivity(intent);
 					// TODO Auto-generated method stub
 					
@@ -119,5 +149,19 @@ public class Odering extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private void registerClickCallback() {
+		final ListView list = (ListView)findViewById(R.id.list_TableLoc);
+		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View viewClicked,
+					int position, long id) {
+					tableLocation = (String)(list.getItemAtPosition(position));
+					// TODO Auto-generated method stub		
+			}
+		
+		});
 	}
 }

@@ -74,7 +74,7 @@ public class MainPage extends Activity {
 		 			@Override
 		 			public void onClick(View v) {
 		 				Intent i = new Intent(v.getContext(), Odering.class);
-		 				i.putExtra("name", "abc" );
+		 				i.putExtra("R_id", "9" );
 		 				startActivity(i);
 		 			}	
 		 		}); 
@@ -85,8 +85,8 @@ public class MainPage extends Activity {
 		 	    button2.setOnClickListener(new View.OnClickListener() {	
 		 			@Override
 		 			public void onClick(View v) {
-		 				Intent i = new Intent(v.getContext(), LoggedIn_Restaurant.class);
-		 				i.putExtra("name", "abc" );
+		 				Intent i = new Intent(v.getContext(), RestaurantPage.class);
+		 				i.putExtra("R_id", "9");
 		 				startActivity(i);
 		 			}	
 		 		});

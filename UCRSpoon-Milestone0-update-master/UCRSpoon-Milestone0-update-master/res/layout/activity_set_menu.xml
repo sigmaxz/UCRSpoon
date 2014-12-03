@@ -34,13 +34,13 @@
         android:layout_height="150dp"
         android:layout_above="@+id/textView3"
         android:layout_alignRight="@+id/textView3"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/itemPrompt"
         android:listSelector="@drawable/list_selector" >
 
     </ListView>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/itemPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/button2"
-        android:layout_alignTop="@+id/textView2"
+        android:layout_alignTop="@+id/itemPrompt"
         android:text="Add Category" />
 
 </RelativeLayout>

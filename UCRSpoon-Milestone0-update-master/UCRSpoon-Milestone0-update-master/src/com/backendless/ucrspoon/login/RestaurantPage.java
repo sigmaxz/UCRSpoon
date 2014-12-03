@@ -24,7 +24,7 @@ import android.widget.Toast;
 import java.net.URL;
 
 public class RestaurantPage extends Activity {
-String Rname;
+String R_id;
 String sname = new String("Rname");
 String sdescription;
 String scuisinetype;
@@ -37,15 +37,22 @@ int sid;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_restaurant_page);
 	
-		
 		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
 		Backendless.initApp( RestaurantPage.this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
 		
-		 Button order = (Button)findViewById(R.id.button_Order2);  
-         order.setOnClickListener(new View.OnClickListener() {
+		//Retrieve extras
+		Bundle extras = getIntent().getExtras();
+		if(extras != null) {
+			R_id = extras.getString("R_id");
+		}
+		
+		Button order = (Button)findViewById(R.id.button_Order2);  
+        order.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v) {				
-				startActivity(new Intent(v.getContext(), Odering.class));
+			public void onClick(View v) {
+				Intent intent = new Intent(v.getContext(), Odering.class);
+				intent.putExtra("R_id", R_id);
+				startActivity(intent);
 			}
 		}); 
         Button review_button = (Button)findViewById(R.id.acReview);
@@ -98,14 +105,8 @@ int sid;
 			}
 		});   
 		
-
-		//Retrieve extras
-		Bundle extras = getIntent().getExtras();
-		if(extras != null) {
-			Rname = extras.getString("Rname");
-		}
 		
-				whereClause = "Rname = '" +Rname+ "'" ; 
+				whereClause = "R_id = '" +R_id+ "'" ; 
 				BackendlessDataQuery dataQuery = new BackendlessDataQuery();
 				dataQuery.setWhereClause( whereClause );
 				Restaurant.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<Restaurant>>() // async call

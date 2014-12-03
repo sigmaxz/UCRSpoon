@@ -18,18 +18,18 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TimePicker
-        android:id="@+id/timePicker1"
+        android:id="@+id/timePicker_diningTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/displayUserName"
         android:layout_below="@+id/displayUserName" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/itemPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/timePicker1"
-        android:layout_below="@+id/timePicker1"
+        android:layout_alignLeft="@+id/timePicker_diningTime"
+        android:layout_below="@+id/timePicker_diningTime"
         android:text="How many people would there be?"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -37,8 +37,8 @@
         android:id="@+id/input_partySize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/itemPrompt"
+        android:layout_below="@+id/itemPrompt"
         android:ems="10"
         android:inputType="number" />
 

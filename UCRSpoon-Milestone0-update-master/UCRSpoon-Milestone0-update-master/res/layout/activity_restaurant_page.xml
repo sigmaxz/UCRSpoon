@@ -22,7 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:isIndicator="true" />
 
     <TextView
         android:id="@+id/description"
@@ -75,21 +76,22 @@
         android:layout_marginBottom="51dp"
         android:text="Reviews" />
 
-    <Button
-        android:id="@+id/button_Order2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ratingBar1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="Order" />
 	<Button
-        android:id="@+id/gal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/avgPrice"
-        android:layout_alignRight="@+id/rateB"
-        android:layout_centerVertical="true"
-        android:text="@string/gal" />
+	    android:id="@+id/gal"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/rateB"
+	    android:layout_alignLeft="@+id/acReview"
+	    android:layout_alignRight="@+id/button_Order2"
+	    android:text="@string/gal" />
+
+	<Button
+	    android:id="@+id/button_Order2"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/gal"
+	    android:layout_alignLeft="@+id/avgPrice"
+	    android:layout_alignRight="@+id/rateB"
+	    android:text="Order" />
 
 </RelativeLayout>
