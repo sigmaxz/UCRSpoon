@@ -30,15 +30,18 @@ String sdescription;
 String scuisinetype;
 String savgPrice;
 String whereClause;
+int sid;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_restaurant_page);
+	
 		
 		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
 		Backendless.initApp( RestaurantPage.this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
 		
+<<<<<<< HEAD
 		 Button order = (Button)findViewById(R.id.button_Order2);  
          order.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -46,6 +49,58 @@ String whereClause;
 				startActivity(new Intent(v.getContext(), Odering.class));
 			}
 		}); 
+=======
+        Button review_button = (Button)findViewById(R.id.acReview);
+        review_button.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			if(! Backendless.UserService.isValidLogin())
+			{
+				showToast("Login required");
+				return;
+			}
+			Intent i = new Intent(v.getContext(), ReviewActivity.class);
+			i.putExtra("sid", sid);
+			startActivity (i);
+			finish();
+				// TODO Auto-generated method stub
+				
+			}
+		});
+        
+        Button gallery_button = (Button)findViewById(R.id.gal);
+        gallery_button.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			Intent i = new Intent(v.getContext(), GalleryActivity.class);
+			i.putExtra("sid", sid);
+			startActivity (i);
+				// TODO Auto-generated method stub
+				
+			}
+		});
+        
+        Button rate_button = (Button)findViewById(R.id.rateB);
+        rate_button.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			if(! Backendless.UserService.isValidLogin())
+			{
+				showToast("Login required");
+				return;
+			}
+			Intent i = new Intent(v.getContext(), RateActivity.class);
+			i.putExtra("sid", sid);
+			startActivity (i);
+				// TODO Auto-generated method stub
+				
+			}
+		});   
+
+>>>>>>> master
 		
 
 		//Retrieve extras
@@ -76,10 +131,11 @@ String whereClause;
 							name.setText(restaurant.getRname());
 							description.setText("Description: " + restaurant.getDescription());
 							cuisinetype.setText("Cuisine Type: " +restaurant.getCuisineType());
-							avgPrice.setText("Avg. Price: " +restaurant.getAvgPrice().toString());
+							avgPrice.setText("Avg. Price: " +String.format("%.2f",restaurant.getAvgPrice()));
+							sid = restaurant.getR_id();
 							
 							RatingBar rtb = (RatingBar)findViewById(R.id.ratingBar1);
-							rtb.setRating((int)Math.floor(restaurant.getRating()));
+							rtb.setRating(restaurant.getRating());
 
 						  
 						   return;
@@ -111,5 +167,10 @@ String whereClause;
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private void showToast(String string) {
+		// TODO Auto-generated method stub
+	    Toast.makeText( this, string, Toast.LENGTH_SHORT ).show();
 	}
 }

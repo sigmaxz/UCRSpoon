@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/input_field"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:ems="10" />
+
+    <RadioGroup
+        android:id="@+id/search_radio_group1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp" >
+
+        <RadioButton
+            android:id="@+id/search_radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Regualer" />
+
+        <RadioButton
+            android:id="@+id/search_radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Average Cost" />
+
+        <RadioButton
+            android:id="@+id/search_radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rating" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/search_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/input_field"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="Search" />
+
+</RelativeLayout>
