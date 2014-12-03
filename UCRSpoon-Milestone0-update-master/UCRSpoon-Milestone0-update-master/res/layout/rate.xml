@@ -5,7 +5,6 @@
     android:orientation="vertical" >
 
     <TextView
-<<<<<<< HEAD
         android:id="@+id/listTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,8 +20,6 @@
     </EditText>
 
     <TextView
-=======
->>>>>>> master
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

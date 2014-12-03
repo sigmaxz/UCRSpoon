@@ -5,11 +5,7 @@
     android:orientation="vertical" >
 
     <TextView
-<<<<<<< HEAD
-        android:id="@+id/listTitle"
-=======
         android:id="@+id/gDes"
->>>>>>> master
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/dining_cost"

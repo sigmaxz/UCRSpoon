@@ -113,12 +113,8 @@ public class Review2Activity extends Activity{
 		 review = new Review();
 		 
 		 review.setR_id( getIntent().getStringExtra("restaurant"));
-<<<<<<< HEAD
-		 //review.setD_id( getIntent().getStringExtra("dish"));
-=======
 		 review.setDName( getIntent().getStringExtra("dish"));
 		 review.setUser(Backendless.UserService.CurrentUser().getEmail());
->>>>>>> master
 		 
 		 
 		 if(Cost != NULL)

@@ -65,7 +65,6 @@
                 android:textSize="@dimen/text_medium"
                 android:layout_marginLeft="@dimen/dp4"/>
         
-<<<<<<< HEAD
         <Button
             	android:layout_width="fill_parent"
                 android:layout_height="@dimen/dp48"
@@ -81,10 +80,6 @@
                 android:id="@+id/rate_button"
                 android:textSize="@dimen/text_medium"
                 android:layout_marginLeft="@dimen/dp4"/>
-=======
-
-        
->>>>>>> master
 
     </LinearLayout>
 

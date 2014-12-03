@@ -92,7 +92,6 @@ public class MainPage extends Activity {
 		 		});
 		        
 		 }
-		
 		 private void onSearchButtonClicked()
 	     {
 	     	Intent searchIntent = new Intent(MainPage.this, SearchInput.class);

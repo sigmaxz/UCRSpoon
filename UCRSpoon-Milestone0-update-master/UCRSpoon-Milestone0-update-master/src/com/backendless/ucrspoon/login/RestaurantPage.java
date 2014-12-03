@@ -41,7 +41,6 @@ int sid;
 		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
 		Backendless.initApp( RestaurantPage.this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
 		
-<<<<<<< HEAD
 		 Button order = (Button)findViewById(R.id.button_Order2);  
          order.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -49,7 +48,6 @@ int sid;
 				startActivity(new Intent(v.getContext(), Odering.class));
 			}
 		}); 
-=======
         Button review_button = (Button)findViewById(R.id.acReview);
         review_button.setOnClickListener(new View.OnClickListener() {
 			
@@ -99,8 +97,6 @@ int sid;
 				
 			}
 		});   
-
->>>>>>> master
 		
 
 		//Retrieve extras
