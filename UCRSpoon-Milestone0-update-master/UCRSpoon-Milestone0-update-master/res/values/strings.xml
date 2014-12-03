@@ -82,6 +82,6 @@
     <string name="upload2">Pick from Gallery</string>
     <string name="takeP">Take Picture</string>
     <string name="gal">Gallery</string>
-
+    <string name="title_activity_order_confirmation_page">OrderConfirmationPage</string>
 
 </resources>

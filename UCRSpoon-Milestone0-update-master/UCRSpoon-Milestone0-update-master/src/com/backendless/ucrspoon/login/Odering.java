@@ -117,12 +117,21 @@ public class Odering extends Activity {
 						am_or_pm = "am";
 					}
 					
-					EditText partySize = (EditText)findViewById(R.id.input_partySize);
+					String partySize;
+					EditText partySizeTmp = (EditText)findViewById(R.id.input_partySize);
+					if(partySizeTmp.getText().toString().isEmpty())
+					{
+						partySize = new String("1");
+					}
+					else
+					{
+						partySize = partySizeTmp.getText().toString();
+					}
 					
 					Intent intent = new Intent(v.getContext(), Ordering2.class);
 					Bundle bundle = new Bundle();
 					intent.putExtra("time", hour + ":" + time.getCurrentMinute().toString() + " " + am_or_pm );
-					intent.putExtra("partySize", partySize.getText().toString());
+					intent.putExtra("partySize", partySize);
 					intent.putExtra("tableLocation", tableLocation);
 					intent.putExtra("R_id", R_id);
 					startActivity(intent);

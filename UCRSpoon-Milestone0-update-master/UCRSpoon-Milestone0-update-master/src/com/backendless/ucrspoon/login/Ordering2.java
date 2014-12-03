@@ -1,5 +1,6 @@
 package com.backendless.ucrspoon.login;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.backendless.ucrspoon.data.Dish;
 import com.backendless.ucrspoon.data.Restaurant;
+import com.backendless.ucrspoon.data.Orders;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -29,12 +31,15 @@ public class Ordering2 extends Activity {
 
 	String[] categories; 
 	String[] items; 
-	Map<String,Integer> Orders;
+	HashMap<String, Integer> Orders;
+	HashMap<String, Double> Prices;
 	String R_id;
 	String partySize;
 	String tableLocation;
 	String time;
 	String selectedItem;
+	double totalPrice = 0;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,28 +62,69 @@ public class Ordering2 extends Activity {
 		TextView selectedCategory = (TextView)findViewById(R.id.itemPrompt);
 		selectedCategory.setText("----");
 		
+		Prices = new HashMap<String, Double>();
+		Orders = new HashMap<String, Integer>();
+		
 		Button orderItem = (Button)findViewById(R.id.button_orderItem);
  	    orderItem.setOnClickListener(new View.OnClickListener() {	
  			@Override
  			public void onClick(View v) {
- 				Toast ordered = Toast.makeText(Ordering2.this, selectedItem, Toast.LENGTH_SHORT);
+ 				Toast ordered = Toast.makeText(Ordering2.this, "You ordered " + selectedItem + "!", Toast.LENGTH_SHORT);
  				ordered.show();
- 				
+ 				Log.v("SDF",selectedItem);
  				if(Orders.containsKey(selectedItem))
  				{
+ 					Log.v("SDF","GdfsdfGGGG");
  					Orders.put(selectedItem, Orders.get(selectedItem)+1);
  					
  				}
  				else
  				{
+ 					Log.v("SDF","GGgggggg");
  					Orders.put(selectedItem, 1);
- 				}
- 				for(Map.Entry<String, Integer> entry: Orders.entrySet())
- 				{
- 					Log.v("SDF",entry.getKey());
- 				}
+ 				}Log.v("SDF","GGGGGG");
+ 				totalPrice += Prices.get(selectedItem);
+ 				Log.v("SDF", String.valueOf(totalPrice));
+
  			}	
  		});
+
+ 	   Button next= (Button)findViewById(R.id.button_toConfirmPage);
+	    next.setOnClickListener(new View.OnClickListener() {	
+			@Override
+			public void onClick(View v) {
+				Orders order = new Orders();
+				order.setR_id(R_id);
+				String orderTmp = "name" + ";" + time + ";" + partySize + ";" + tableLocation;
+ 				for(Map.Entry<String, Integer> entry: Orders.entrySet())
+ 				{
+ 					orderTmp += ";" + entry.getKey() + ":" + entry.getValue();
+ 					
+ 				}
+ 				Log.v("SDF",orderTmp);
+				order.setOrder(orderTmp);
+				order.saveAsync(new AsyncCallback<Orders>() {
+
+					@Override
+					public void handleFault(BackendlessFault fault) {
+						Toast fail= Toast.makeText(Ordering2.this,"Ordering Failed. Please Try Again.", Toast.LENGTH_SHORT);
+		 				fail.show();
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void handleResponse(Orders response) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+				});
+				
+			}
+				 
+				
+		});
 		
 	}
 
@@ -164,7 +210,8 @@ public class Ordering2 extends Activity {
 							items = new String[lr.size()];
 							for(int i = 0, size = lr.size(); i < size; i++)
 							{
-								items[i] = new String(lr.get(i).getName());
+								items[i] = new String(lr.get(i).getName() + " ($"+lr.get(i).getPrice()+" )");
+								Prices.put(items[i], lr.get(i).getPrice());
 							}
 							  ArrayAdapter<String> adapter;
 							  adapter = new ArrayAdapter<String>(
@@ -198,7 +245,7 @@ public class Ordering2 extends Activity {
 					//TextView textView=(TextView)viewClicked;
 				TextView selected = (TextView)viewClicked;
 				selectedItem = selected.getText().toString();
-				//Log.v("SDF",selectedItem);	
+				Log.v("SDF",selectedItem);	
 				// TODO Auto-generated method stub
 				
 			}

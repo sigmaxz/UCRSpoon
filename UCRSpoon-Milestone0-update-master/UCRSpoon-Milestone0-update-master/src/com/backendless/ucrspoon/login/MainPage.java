@@ -81,7 +81,7 @@ public class MainPage extends Activity {
 		 	 
 			 	   //Temporary button to make testing for Change Menu easier
 		 	    //Orders from abc
-		 	 Button button2 = (Button)findViewById(R.id.button2);
+		 	 Button button2 = (Button)findViewById(R.id.button_toConfirmPage);
 		 	    button2.setOnClickListener(new View.OnClickListener() {	
 		 			@Override
 		 			public void onClick(View v) {

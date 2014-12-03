@@ -69,7 +69,7 @@
     </ListView>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_toConfirmPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/linearLayout1"
@@ -80,7 +80,7 @@
         android:id="@+id/button_Next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/button2"
+        android:layout_alignRight="@+id/button_toConfirmPage"
         android:layout_alignTop="@+id/itemPrompt"
         android:text="Add Category" />
 

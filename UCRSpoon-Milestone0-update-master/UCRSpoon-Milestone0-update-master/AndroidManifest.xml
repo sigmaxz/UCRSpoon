@@ -11,14 +11,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera"/>
-    
-    <application android:label="@string/app_name">
-               
-        
-        <activity 
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <application android:label="@string/app_name" >
+        <activity
             android:name=".MainPage"
             android:label="@string/app_name" >
             <intent-filter>
@@ -43,11 +41,7 @@
         <activity android:name=".RateActivity" />
         <activity android:name=".SearchInput" />
         <activity android:name=".SearchPage" />
-
         <activity android:name=".GalleryActivity" />
-        
-        
-  
         <activity
             android:name=".NearbyRestaurant"
             android:label="Restaurants Near You" >
@@ -74,6 +68,10 @@
         <activity
             android:name=".Ordering2"
             android:label="@string/title_activity_ordering2" >
+        </activity>
+        <activity
+            android:name=".OrderConfirmationPage"
+            android:label="@string/title_activity_order_confirmation_page" >
         </activity>
     </application>
 

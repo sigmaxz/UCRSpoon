@@ -62,13 +62,13 @@
         android:text="Order Item" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_toConfirmPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button_orderItem"
         android:layout_alignBottom="@+id/button_orderItem"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/textView1"
-        android:text="View Cart" />
+        android:text="Next" />
 
 </RelativeLayout>
