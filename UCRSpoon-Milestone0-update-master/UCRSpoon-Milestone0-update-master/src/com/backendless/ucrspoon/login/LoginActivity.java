@@ -127,7 +127,7 @@ public class LoginActivity extends Activity
         {
         	//User is a restaurant
         	Intent intent = new Intent( LoginActivity.this, LoggedIn_Restaurant.class);
-        	intent.putExtra("name", backendlessUser.getProperty("name").toString());
+        	intent.putExtra("R_id", backendlessUser.getProperty("R_id").toString());
         	startActivity(intent);
         }
         else

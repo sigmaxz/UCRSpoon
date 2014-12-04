@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessCollection;
+import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
@@ -38,7 +39,9 @@ public class Ordering2 extends Activity {
 	String tableLocation;
 	String time;
 	String selectedItem;
+	String name;
 	double totalPrice = 0;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +55,9 @@ public class Ordering2 extends Activity {
 		Bundle extras = getIntent().getExtras();
 		if(extras != null) {
 			R_id = extras.getString("R_id");
-			Log.v("SDF","SDFSDFSDF");
 			time = extras.getString("time");
 			partySize = extras.getString("partySize");
-			tableLocation = extras.getString("tableLocation");Log.v("SDF","DSF");
+			tableLocation = extras.getString("tableLocation");
 			populateCategory();
 		}
 		
@@ -71,55 +73,94 @@ public class Ordering2 extends Activity {
  			public void onClick(View v) {
  				Toast ordered = Toast.makeText(Ordering2.this, "You ordered " + selectedItem + "!", Toast.LENGTH_SHORT);
  				ordered.show();
- 				Log.v("SDF",selectedItem);
  				if(Orders.containsKey(selectedItem))
  				{
- 					Log.v("SDF","GdfsdfGGGG");
  					Orders.put(selectedItem, Orders.get(selectedItem)+1);
- 					
  				}
  				else
  				{
- 					Log.v("SDF","GGgggggg");
  					Orders.put(selectedItem, 1);
- 				}Log.v("SDF","GGGGGG");
+ 				}
  				totalPrice += Prices.get(selectedItem);
- 				Log.v("SDF", String.valueOf(totalPrice));
 
  			}	
  		});
-
- 	   Button next= (Button)findViewById(R.id.button_toConfirmPage);
-	    next.setOnClickListener(new View.OnClickListener() {	
-			@Override
-			public void onClick(View v) {
-				Orders order = new Orders();
-				order.setR_id(R_id);
-				String orderTmp = "name" + ";" + time + ";" + partySize + ";" + tableLocation;
+		Button viewItems = (Button)findViewById(R.id.button_viewItems);
+ 	    viewItems.setOnClickListener(new View.OnClickListener() {	
+ 			@Override
+ 			public void onClick(View v) {
+ 				String cart = "";
  				for(Map.Entry<String, Integer> entry: Orders.entrySet())
  				{
- 					orderTmp += ";" + entry.getKey() + ":" + entry.getValue();
+ 					cart += entry.getKey() + " x" + entry.getValue() + "\n";
  					
  				}
- 				Log.v("SDF",orderTmp);
-				order.setOrder(orderTmp);
-				order.saveAsync(new AsyncCallback<Orders>() {
+ 				cart += "\nTotal = $" + totalPrice; 
+ 				Toast ordered = Toast.makeText(Ordering2.this, cart, Toast.LENGTH_SHORT);
+ 				ordered.show();
 
-					@Override
-					public void handleFault(BackendlessFault fault) {
-						Toast fail= Toast.makeText(Ordering2.this,"Ordering Failed. Please Try Again.", Toast.LENGTH_SHORT);
-		 				fail.show();
-						// TODO Auto-generated method stub
-						
+
+ 			}	
+ 		});
+ 	   Button done = (Button)findViewById(R.id.button_toConfirmPage);
+	    done.setOnClickListener(new View.OnClickListener() {	
+			@Override
+			public void onClick(View v) {
+				if (Orders.isEmpty())
+				{
+					Toast invalid = Toast.makeText(Ordering2.this, "There is nothing to order", Toast.LENGTH_SHORT);
+					invalid.show();
+				}
+				else
+				{
+					Orders order = new Orders();
+					order.setR_id(R_id);
+					
+					//Make sure that a user is logged in to be able to get name
+					BackendlessUser user = Backendless.UserService.CurrentUser();
+					if(user != null)
+					{
+						name = (String)user.getProperty("name");
 					}
-
-					@Override
-					public void handleResponse(Orders response) {
-						// TODO Auto-generated method stub
-						
+					else
+					{
+						name = "ERROR: User is not logged in"; 
 					}
 					
-				});
+					//Set the name, time, party size, and tableLocations
+					String orderTmp = name + ";" + time + ";" + partySize + ";" + tableLocation;
+					
+					//Set the dishes
+					for(Map.Entry<String, Integer> entry: Orders.entrySet())
+					{
+						orderTmp += ";" + entry.getKey() + " x" + entry.getValue();
+ 					
+					}
+					
+					//Set the total Price
+					orderTmp += ";" + String.valueOf(totalPrice);
+					
+					order.setOrder(orderTmp);
+					order.saveAsync(new AsyncCallback<Orders>() {
+
+						@Override
+						public void handleFault(BackendlessFault fault) {
+							Toast fail= Toast.makeText(Ordering2.this,"Ordering Failed. Please Try Again.", Toast.LENGTH_SHORT);
+							fail.show();
+							// TODO Auto-generated method stub
+						}
+
+						@Override
+						public void handleResponse(Orders response) {
+							Orders.clear();
+							Orders = new HashMap<String, Integer>();
+							totalPrice = 0;
+							Toast success= Toast.makeText(Ordering2.this,"Order success", Toast.LENGTH_SHORT);
+							success.show();
+						}
+					
+					});
+				}
 				
 			}
 				 
@@ -168,7 +209,6 @@ public class Ordering2 extends Activity {
 					  ListView list = (ListView)findViewById(R.id.list_menuCategories); 
 					  list.setAdapter(adapter);
 					  registerClickCallback();
-					  populateItem();
 				 }
 				@Override
 				public void handleFault(BackendlessFault fault) { // does nothing but auto override 
@@ -176,9 +216,6 @@ public class Ordering2 extends Activity {
 					  return;
 				}
 		});
-	}
-	private void populateItem(){
-			Log.v("f","f");
 	}
 	private void registerClickCallback() {
 		final ListView list = (ListView)findViewById(R.id.list_menuCategories);
@@ -194,7 +231,6 @@ public class Ordering2 extends Activity {
 				
 				//Get Items corresponding to the selected Category
 				String whereClause = "R_id = '" +R_id + "' AND Category = '" + selected.getText().toString() + "'";
-				Log.v("SDF", whereClause);
 				BackendlessDataQuery dataQuery = new BackendlessDataQuery();
 				dataQuery.setWhereClause( whereClause );
 				Dish.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<Dish>>(){		
@@ -204,7 +240,6 @@ public class Ordering2 extends Activity {
 							
 							List<Dish> lr = response.getData();
 							if(lr.size() < 1){ 
-								Log.v("SDF","GGGG");
 								return;
 							}
 							items = new String[lr.size()];
@@ -245,7 +280,6 @@ public class Ordering2 extends Activity {
 					//TextView textView=(TextView)viewClicked;
 				TextView selected = (TextView)viewClicked;
 				selectedItem = selected.getText().toString();
-				Log.v("SDF",selectedItem);	
 				// TODO Auto-generated method stub
 				
 			}

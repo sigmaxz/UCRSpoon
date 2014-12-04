@@ -9,8 +9,31 @@
     tools:context="com.backendless.ucrspoon.login.OrderConfirmationPage" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Please Confirm your Order"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/button_Confirmation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Confirm" />
+
+    <TextView
+        android:id="@+id/Order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_Confirmation"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/button_Confirmation"
+        android:layout_below="@+id/textView1"
+        android:text=" " />
 
 </RelativeLayout>

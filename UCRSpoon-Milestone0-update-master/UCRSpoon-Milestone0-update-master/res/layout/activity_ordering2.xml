@@ -58,7 +58,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/list_menuItems"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/textView1"
         android:text="Order Item" />
 
     <Button
@@ -68,7 +67,15 @@
         android:layout_alignBaseline="@+id/button_orderItem"
         android:layout_alignBottom="@+id/button_orderItem"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/textView1"
-        android:text="Next" />
+        android:text="Done" />
+
+    <Button
+        android:id="@+id/button_viewItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_orderItem"
+        android:layout_toLeftOf="@+id/button_toConfirmPage"
+        android:layout_toRightOf="@+id/button_orderItem"
+        android:text="View Items" />
 
 </RelativeLayout>

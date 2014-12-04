@@ -24,6 +24,7 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class Odering extends Activity {
 
@@ -45,6 +46,10 @@ public class Odering extends Activity {
 			R_id = extras.getString("R_id");
 		}
 		
+		//Set
+		EditText input_partySize = (EditText)findViewById(R.id.input_partySize);
+		input_partySize.setText("1");
+		
 		whereClause = "R_id = '"+R_id+ "'";
 		BackendlessDataQuery dataQuery = new BackendlessDataQuery();
 		dataQuery.setWhereClause( whereClause );
@@ -58,17 +63,21 @@ public class Odering extends Activity {
 					  
 					  return;
 				  }
-
 				 String TableLocations_unparsed = lr.get(0).getTableLocations();
-				 
+				 if(TableLocations_unparsed.isEmpty())
+				 {
+					 //Do Nothing
+				 }
+				 else
+				 {
 					String[] tableLocations = TableLocations_unparsed.split(";");
-				  // tableLocations = 
-				   for (int i = 0; i < tableLocations.length; i++)
-				   {
+					// tableLocations = 
+					for (int i = 0; i < tableLocations.length; i++)
+					{
 					   tableLocations[i] = "\n" + tableLocations[i] +"\n";
-				   }
+					}
 					 
-				    ArrayAdapter<String> adapter;
+					ArrayAdapter<String> adapter;
 					adapter = new ArrayAdapter<String>(
 							Odering.this,		 			//COntext for this activity
 							R.layout.restaurat_list, //Layout to be use(create)
@@ -77,8 +86,8 @@ public class Odering extends Activity {
 					list.setAdapter(adapter);
 					registerClickCallback();
 
-				  
-				   return;
+				 }
+				  return;
 						
 			}
 			@Override
@@ -87,7 +96,7 @@ public class Odering extends Activity {
 				  return;
 			}
 		});
-		
+
 		 Button buttonNext = (Button)findViewById(R.id.button_Next);
 	        buttonNext.setOnClickListener(new View.OnClickListener() {
 				
@@ -96,6 +105,7 @@ public class Odering extends Activity {
 					
 					TimePicker time = (TimePicker)findViewById(R.id.timePicker_diningTime);
 					//Check if time entered is valid
+					
 					//Get Hour
 					String hour;
 					if(time.getCurrentHour() % 12 == 0)
@@ -106,6 +116,17 @@ public class Odering extends Activity {
 					{
 						hour = String.valueOf(time.getCurrentHour() % 12);
 					}
+					//Format minute so that it displays a 0 before values less than 10. Example 09 instead of 9.
+					String minute;
+					if(time.getCurrentMinute() < 10)
+					{
+						minute = "0" + String.valueOf(time.getCurrentMinute());
+					}
+					else
+					{
+						minute = String.valueOf(time.getCurrentMinute());
+					}
+
 					//Get am or pm
 					String am_or_pm;
 					if(time.getCurrentHour() >= 12)
@@ -119,8 +140,10 @@ public class Odering extends Activity {
 					
 					String partySize;
 					EditText partySizeTmp = (EditText)findViewById(R.id.input_partySize);
-					if(partySizeTmp.getText().toString().isEmpty())
+					if(partySizeTmp.getText().toString().isEmpty() || partySizeTmp.getText().toString() == "0")
 					{
+						Toast alert = Toast.makeText(Odering.this, "Party size is defaulted to 1", Toast.LENGTH_LONG);
+						alert.show();
 						partySize = new String("1");
 					}
 					else
@@ -130,7 +153,7 @@ public class Odering extends Activity {
 					
 					Intent intent = new Intent(v.getContext(), Ordering2.class);
 					Bundle bundle = new Bundle();
-					intent.putExtra("time", hour + ":" + time.getCurrentMinute().toString() + " " + am_or_pm );
+					intent.putExtra("time", hour + ":" + minute + " " + am_or_pm );
 					intent.putExtra("partySize", partySize);
 					intent.putExtra("tableLocation", tableLocation);
 					intent.putExtra("R_id", R_id);
@@ -139,6 +162,8 @@ public class Odering extends Activity {
 					
 				}
 			});
+	        
+			
 	}
 
 	@Override

@@ -66,31 +66,6 @@ public class MainPage extends Activity {
 		 				onSearchButtonClicked();
 		 			}	
 		 		});
-		 	    
-		 	   //Temporary button to make testing for Pre-Order easier
-		 	    //Orders from abc
-		 	 Button button1 = (Button)findViewById(R.id.button3);  Log.v("DD","adf2");
-		 	    button1.setOnClickListener(new View.OnClickListener() {	
-		 			@Override
-		 			public void onClick(View v) {
-		 				Intent i = new Intent(v.getContext(), Odering.class);
-		 				i.putExtra("R_id", "9" );
-		 				startActivity(i);
-		 			}	
-		 		}); 
-		 	 
-			 	   //Temporary button to make testing for Change Menu easier
-		 	    //Orders from abc
-		 	 Button button2 = (Button)findViewById(R.id.button_toConfirmPage);
-		 	    button2.setOnClickListener(new View.OnClickListener() {	
-		 			@Override
-		 			public void onClick(View v) {
-		 				Intent i = new Intent(v.getContext(), RestaurantPage.class);
-		 				i.putExtra("R_id", "9");
-		 				startActivity(i);
-		 			}	
-		 		});
-		        
 		 }
 		 private void onSearchButtonClicked()
 	     {

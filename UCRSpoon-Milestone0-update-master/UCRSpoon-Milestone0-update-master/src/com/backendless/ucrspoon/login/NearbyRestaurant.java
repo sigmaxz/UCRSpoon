@@ -77,47 +77,7 @@ public class NearbyRestaurant extends Activity {
 			longitude_min = longitude - .1;
 			latitude_max = latitude +.1;
 			latitude_min = latitude -.1;
-			String whereClause = "Longitude < " +longitude_max + " AND Longitude > " +longitude_min+" AND "+
-			"Latitude < " + latitude_max + " AND Latitude > " + longitude_min; 
-			BackendlessDataQuery dataQuery = new BackendlessDataQuery();
-			dataQuery.setWhereClause( whereClause );
-			Restaurant.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<Restaurant>>() // async call
-			{		
-				  @Override
-				  public void handleResponse(BackendlessCollection<Restaurant> response )
-				  {
-					  List<Restaurant> lr = response.getData();
-					 
-					  
-					  if(lr.size() < 1){ 
-						  return;
-					  }
-					 
-
-					   restaurantlist = new String[lr.size()];
-					   list_R_id = new String[lr.size()];
-					  
-					   for(int i = 0; i < lr.size();i++)
-					  {
-						  	restaurantlist[i] = lr.get(i).getRname() + "\n\n" +
-						  						"Description: " + lr.get(i).getDescription() + "\n" +
-						  						"Cuisine Type: " +lr.get(i).getCuisineType() +"\n"+
-						  						"Ratings: " + lr.get(i).getRating() + "\n" +
-						  						"Avg. Price: " + lr.get(i).getAvgPrice() + "\n";
-						  	list_R_id[i] = String.valueOf(lr.get(i).getR_id());
-
-					  }
-						//Print out list
-						populateListView();
-						
-							
-				}
-				@Override
-				public void handleFault(BackendlessFault fault) { // does nothing but auto override 
-					// TODO Auto-generated method stub
-					  return;
-				}
-			});
+			
 
 			
 			return null;

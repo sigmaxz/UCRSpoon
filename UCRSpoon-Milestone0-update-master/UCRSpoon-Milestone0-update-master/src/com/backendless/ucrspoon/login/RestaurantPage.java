@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessCollection;
+import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
@@ -50,9 +51,19 @@ int sid;
         order.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(v.getContext(), Odering.class);
-				intent.putExtra("R_id", R_id);
-				startActivity(intent);
+				BackendlessUser user = Backendless.UserService.CurrentUser();
+				if (user == null)
+				{
+					Toast invalid = Toast.makeText(RestaurantPage.this, "You must be logged in to order", Toast.LENGTH_SHORT);
+					invalid.show();
+				}
+				else
+				{
+					Intent intent = new Intent(v.getContext(), Odering.class);
+					intent.putExtra("R_id", R_id);
+					startActivity(intent);
+				}
+				
 			}
 		}); 
         Button review_button = (Button)findViewById(R.id.acReview);
