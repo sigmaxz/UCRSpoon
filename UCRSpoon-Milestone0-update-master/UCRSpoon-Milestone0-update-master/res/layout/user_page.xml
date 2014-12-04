@@ -81,6 +81,22 @@
                 android:textSize="@dimen/text_medium"
                 android:layout_marginLeft="@dimen/dp4"/>
 
+        <Button
+            	android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp48"
+                android:text="@string/FriendList"
+                android:id="@+id/friend_list_button"
+                android:textSize="@dimen/text_medium"
+                android:layout_marginLeft="@dimen/dp4"/>
+
+        <Button
+            	android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp48"
+                android:text="@string/Inbox"
+                android:id="@+id/inbox_button"
+                android:textSize="@dimen/text_medium"
+                android:layout_marginLeft="@dimen/dp4"/>
+
     </LinearLayout>
 
     <Button

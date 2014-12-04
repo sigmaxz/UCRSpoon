@@ -67,10 +67,18 @@ public class UserPage extends Activity {
  			}	
  		});
 	  
+ 	   Button FriendListButton = (Button)findViewById(R.id.friend_list_button);
+ 	   FriendListButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				onFriendListButtonClicked();
+			}	
+		});
         
 	  }   
 	  
-        public void onLogoutButtonClicked()   // log out button clicked
+        private void onLogoutButtonClicked()   // log out button clicked
         {
           Backendless.UserService.logout( new DefaultCallback<Void>( this )
           {
@@ -93,6 +101,11 @@ public class UserPage extends Activity {
 	    private void onSearchButtonClicked()
 	    {
 	    	Intent searchIntent = new Intent(UserPage.this, SearchInput.class);
+	    	startActivity(searchIntent);	    	
+	    }
+	    private void onFriendListButtonClicked()
+	    {
+	    	Intent searchIntent = new Intent(UserPage.this, FriendList.class);
 	    	startActivity(searchIntent);	    	
 	    }
 

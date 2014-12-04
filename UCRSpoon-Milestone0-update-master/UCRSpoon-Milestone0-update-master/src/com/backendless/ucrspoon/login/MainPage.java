@@ -28,17 +28,24 @@ public class MainPage extends Activity {
 					{
 						Intent i = new Intent(v.getContext(), UserPage.class);
 						startActivity(i);
-						//finish();
+						
 					}
 					else
 					{
 						startActivity (new Intent(v.getContext(), LoginActivity.class));   // login is pressed 
-						//finish();
+						
 					}
 				}
 			}); // Register the onClick listener with the implementation above
 	         	       
-	        
+	         Button register_button = (Button)findViewById(R.id.register_button);    // only records 
+	         register_button.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {				
+				startActivity (new Intent(v.getContext(), RegisterActivity.class));   // goes to MyCamera.java
+				// TODO Auto-generated method stub
+				}
+			});
 	         Button browse_button = (Button)findViewById(R.id.BrowseButton);    // only records 
 	         browse_button.setOnClickListener(new View.OnClickListener() {
 				@Override

@@ -1,7 +1,6 @@
 package com.backendless.ucrspoon.login;
 
 import com.backendless.BackendlessUser;
-import com.backendless.ucrspoon.data.*;
 
 public class UCRSpoonUser extends BackendlessUser
 {
@@ -20,6 +19,36 @@ public class UCRSpoonUser extends BackendlessUser
     return super.getPassword();
   }
 
+  public String getFriends()
+  {
+    return (String) super.getProperty( "Friends" );
+  }
+
+  public void setFriends( String Friends )
+  {
+    super.setProperty( "Friends", Friends );
+  }
+
+  public Integer getType()
+  {
+    return (Integer) super.getProperty( "Type" );
+  }
+
+  public void setType( Integer Type )
+  {
+    super.setProperty( "Type", Type );
+  }
+
+  public Boolean getIsRestaurant()
+  {
+    return (Boolean) super.getProperty( "isRestaurant" );
+  }
+
+  public void setIsRestaurant( Boolean isRestaurant )
+  {
+    super.setProperty( "isRestaurant", isRestaurant );
+  }
+
   public String getName()
   {
     return (String) super.getProperty( "name" );
@@ -28,5 +57,15 @@ public class UCRSpoonUser extends BackendlessUser
   public void setName( String name )
   {
     super.setProperty( "name", name );
+  }
+
+  public Integer getUserID()
+  {
+    return (Integer) super.getProperty( "userID" );
+  }
+
+  public void setUserID( Integer userID )
+  {
+    super.setProperty( "userID", userID );
   }
 }
