@@ -9,7 +9,7 @@
     tools:context="com.backendless.ucrspoon.login.OrderConfirmationPage" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/Recipient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -21,7 +21,7 @@
         android:id="@+id/button_Confirmation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignLeft="@+id/Recipient"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:text="Confirm" />
@@ -31,9 +31,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button_Confirmation"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignLeft="@+id/Recipient"
         android:layout_alignRight="@+id/button_Confirmation"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/Recipient"
         android:text=" " />
 
 </RelativeLayout>

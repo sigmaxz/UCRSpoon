@@ -42,6 +42,7 @@
         <activity android:name=".SearchInput" />
         <activity android:name=".SearchPage" />
         <activity android:name=".FriendList" />
+        <activity android:name=".MessageActivity" />
         <activity android:name=".GalleryActivity" />
         <activity
             android:name=".NearbyRestaurant"

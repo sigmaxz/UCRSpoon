@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_above="@+id/button_Next"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/Recipient"
         android:layout_centerHorizontal="true"
         android:listSelector="@drawable/list_selector" >
 
@@ -63,7 +63,7 @@
         android:text="Next" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/Recipient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/list_TableLoc"

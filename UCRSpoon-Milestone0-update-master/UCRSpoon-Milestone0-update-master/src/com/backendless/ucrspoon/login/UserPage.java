@@ -86,6 +86,7 @@ public class UserPage extends Activity {
             public void handleResponse( Void response )
             {
               startActivity( new Intent(UserPage.this, MainPage.class ) );
+              finish();
             }
           } );    
         }

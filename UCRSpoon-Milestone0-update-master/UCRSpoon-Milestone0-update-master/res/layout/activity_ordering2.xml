@@ -9,7 +9,7 @@
     tools:context="com.backendless.ucrspoon.login.Ordering2" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/Recipient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/Recipient"
         android:text="Select an Item Category"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
