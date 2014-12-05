@@ -78,7 +78,55 @@ public class NearbyRestaurant extends Activity {
 			latitude_max = latitude +.1;
 			latitude_min = latitude -.1;
 			
+			String whereClause = "Longitude < " +longitude_max + " AND Longitude > " +longitude_min+" AND "+
+			"Latitude < " + latitude_max + " AND Latitude > " + longitude_min; 
+			BackendlessDataQuery dataQuery = new BackendlessDataQuery();
+			dataQuery.setWhereClause( whereClause );
+			Restaurant.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<Restaurant>>() // async call
+			{		
+				//resultCollection = response;
+				 //two overides 
 
+				  @Override
+				  public void handleResponse(BackendlessCollection<Restaurant> response )
+				  {
+					 // super.handleResponse(response);
+					  //resultCollection = response;
+					  //check for size of what you got
+					  //Log.v("mSDF",String.format("%.2f", latitude));
+					  List<Restaurant> lr = response.getData();
+					 
+					  
+					  if(lr.size() < 1){
+						  //showToast( " Restaurant not found." );
+						  return;
+					  }
+					  
+					   Restaurant firstRestaurant = response.getCurrentPage().get( 0 );
+					  //Log.d("Rname", lr.get(0).getRname());
+					  //since i'm looking for a name i took for instance
+					   restaurantlist = new String[lr.size()];
+					  
+					   for(int i = 0; i < lr.size();i++)
+					  {
+						  	Log.v("TEST", lr.get(i).getRname());
+						  	restaurantlist[i] = lr.get(i).getRname() + "\n\n" +
+						  						"Description: " + lr.get(i).getDescription() + "\n" +
+						  						"Cuisine Type: " +lr.get(i).getCuisineType() +"\n"+
+						  						"Ratings: " + lr.get(i).getRating() + "\n" +
+						  						"Avg. Price: " + lr.get(i).getAvgPrice() + "\n";
+					  }
+						//Print out list
+						populateListView();
+							
+				}
+				@Override
+				public void handleFault(BackendlessFault fault) { // does nothing but auto override 
+					// TODO Auto-generated method stub
+
+					  return;
+				}
+			});
 			
 			return null;
 		}
