@@ -20,4 +20,13 @@
 
     </ListView>
 
+    <EditText
+        android:id="@+id/addFriendField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/add"
+        android:layout_alignBottom="@+id/add"
+        android:layout_alignParentLeft="true"
+        android:ems="10" />
+
 </RelativeLayout>

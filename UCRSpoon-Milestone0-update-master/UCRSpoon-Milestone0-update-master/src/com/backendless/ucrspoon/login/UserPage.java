@@ -75,6 +75,15 @@ public class UserPage extends Activity {
 				onFriendListButtonClicked();
 			}	
 		});
+ 	   
+ 	   Button MessagesButton = (Button)findViewById(R.id.inbox_button);
+	   MessagesButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				onMessagesButtonClicked();
+			}	
+		});
         
 	  }   
 	  
@@ -107,6 +116,12 @@ public class UserPage extends Activity {
 	    private void onFriendListButtonClicked()
 	    {
 	    	Intent searchIntent = new Intent(UserPage.this, FriendList.class);
+	    	startActivity(searchIntent);	    	
+	    }
+	    
+	    private void onMessagesButtonClicked()
+	    {
+	    	Intent searchIntent = new Intent(UserPage.this, InboxPage.class);
 	    	startActivity(searchIntent);	    	
 	    }
 

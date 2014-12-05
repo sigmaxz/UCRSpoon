@@ -43,6 +43,7 @@
         <activity android:name=".SearchPage" />
         <activity android:name=".FriendList" />
         <activity android:name=".MessageActivity" />
+        <activity android:name="InboxPage" />
         <activity android:name=".GalleryActivity" />
         <activity
             android:name=".NearbyRestaurant"

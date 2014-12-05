@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,10 +19,10 @@ import android.widget.Toast;
 import com.backendless.Backendless;
 import com.backendless.BackendlessCollection;
 import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.backendless.ucrspoon.data.UsersName;
-import com.backendless.ucrspoon.data.UsersPopulation;
 import com.backendless.ucrspoon.data.crud.common.DefaultCallback;
 
 public class FriendList extends Activity{
@@ -28,7 +30,10 @@ public class FriendList extends Activity{
 	//private List<Restaurant> result= new ArrayList<Restaurant>();
     private List<String> StringArray = new ArrayList<String>();
     private List<String> NameArray = new ArrayList<String>();
+    private List<UsersName>lr = new ArrayList<UsersName>();
     String friends_id, user_name;
+    private EditText friendNameField;
+    private BackendlessUser user;
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
@@ -42,7 +47,7 @@ public class FriendList extends Activity{
 	
 	private void search_friends()
 	{
-		BackendlessUser user = Backendless.UserService.CurrentUser();
+		user = Backendless.UserService.CurrentUser();
 		friends_id = (String) user.getProperty("Friends");
 		user_name = (String) user.getProperty("name");
 		if(friends_id == null)
@@ -64,7 +69,7 @@ public class FriendList extends Activity{
 				public void handleResponse( BackendlessCollection<UsersName> response )
 				{
 					super.handleResponse( response );
-				    List<UsersName>lr = response.getCurrentPage();
+				    lr = response.getCurrentPage();
 				    if(lr.size()>0)
 				    {
 				    	for(int i = 0; i < lr.size(); i++)
@@ -111,6 +116,14 @@ public class FriendList extends Activity{
 										 NameArray);
 		ListView view = (ListView)findViewById(R.id.friendListView);
 		view.setAdapter(adapter);
+		Button AddFriendButton = (Button)findViewById(R.id.add);
+		   AddFriendButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					onAddFriendClicked();
+				}	
+			});
+	        
 		active_list_button();
 	}
 	
@@ -135,5 +148,70 @@ public class FriendList extends Activity{
 			}
 		});
 	}
+	public void onAddFriendClicked()
+	  {
+		friendNameField = (EditText)findViewById(R.id.addFriendField);
+		String friendName = friendNameField.getText().toString().trim();
+		if(friendName.isEmpty())
+		{
+			Toast.makeText(getApplicationContext(),"input field cannot be empty",
+   				 Toast.LENGTH_LONG).show();
+		     return;
+		}
+		String whereClause = "name = '"+ friendName + "'"; 
+		 BackendlessDataQuery dataQuery = new BackendlessDataQuery();
+		 dataQuery.setWhereClause( whereClause );
+		 UsersName.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<UsersName>>() 
+		 {
+				@Override
+				public void handleResponse( BackendlessCollection<UsersName> response )
+				{
+					List<UsersName> lr = response.getData();
+					if(lr.size() < 1){
+						Toast.makeText(getApplicationContext(),"name not found",
+				   				 Toast.LENGTH_LONG).show();
+						  return;
+					  }
+					UsersName friendName = response.getCurrentPage().get( 0 );
+					if(friendName.getName().isEmpty())
+					{
+						Toast.makeText(getApplicationContext(),"name not found",
+				   				 Toast.LENGTH_LONG).show();
+						return;
+					}
+					else
+					{
+						String new_friends_id = friends_id.trim() + "," + friendName.getID();
+						user.setProperty("Friends", new_friends_id);
+						Backendless.UserService.update( user, new AsyncCallback<BackendlessUser>() 
+						{
+							public void handleResponse( BackendlessUser user )
+							{
+								Toast.makeText(getApplicationContext(),"add friend successfully",
+						   				 Toast.LENGTH_LONG).show();
+								       // user has been updated
+							}
+
+							public void handleFault( BackendlessFault fault )
+							{
+								Toast.makeText(getApplicationContext(),"fail to add friend",
+						   				 Toast.LENGTH_LONG).show();
+								       // user update failed, to get the error code call fault.getCode()
+							 }
+						});
+						
+					}
+					
+				}
+				@Override
+				public void handleFault(BackendlessFault fault) { 
+					// TODO Auto-generated method stub
+					  return;
+				}
+				
+		 });
+		 
+						
+	  }
 }
 	
