@@ -39,7 +39,7 @@ int sid;
 		setContentView(R.layout.activity_restaurant_page);
 	
 		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
-		Backendless.initApp( RestaurantPage.this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
+		//Backendless.initApp( RestaurantPage.this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
 		//Retrieve extras
 		Bundle extras = getIntent().getExtras();
 		if(extras != null) {
