@@ -40,13 +40,12 @@ int sid;
 	
 		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
 		Backendless.initApp( RestaurantPage.this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
-		
 		//Retrieve extras
 		Bundle extras = getIntent().getExtras();
 		if(extras != null) {
 			R_id = extras.getString("R_id");
 		}
-		
+		//System.out.println("~~~~~~~~~~~~:::::"+R_id);
 		Button order = (Button)findViewById(R.id.button_Order2);  
         order.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -130,7 +129,7 @@ int sid;
 						  if(lr.size() < 1){
 							  return;
 						  }
-						  
+						  //System.out.println("RRRRRREEEESSSSSSTTTTTTTTAAAAARRRRRRRRAAUUUTTTTT");
 						   Restaurant restaurant = response.getCurrentPage().get( 0 );
 							TextView name = (TextView)findViewById(R.id.title);
 							TextView description = (TextView)findViewById(R.id.description);
@@ -145,7 +144,7 @@ int sid;
 							RatingBar rtb = (RatingBar)findViewById(R.id.ratingBar1);
 							rtb.setRating(restaurant.getRating());
 
-						  
+						    
 						   return;
 								
 					}

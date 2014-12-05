@@ -38,7 +38,7 @@ public class SelectBrowseOperationActivity extends Activity
   private int currentPage;
   private List<String> StringArray = new ArrayList<String>();
   private String[] r_name = new String[10];
-  
+  private List<String> idArray = new ArrayList<String>();
   public void onCreate( Bundle savedInstanceState )
   {
     super.onCreate( savedInstanceState );
@@ -155,6 +155,7 @@ public class SelectBrowseOperationActivity extends Activity
 		 						"Environment: " + review_list.get(i).getEnviornment() + "\n" +
 		 						"Service: " +review_list.get(i).getService() +"\n"+
 		 						"Dining Cost: $" + review_list.get(i).getDiningCost() + "\n");
+        			    idArray.add(review_list.get(i).getR_id().trim());
         				}
         				displayList();		
     			}
@@ -226,6 +227,7 @@ public class SelectBrowseOperationActivity extends Activity
         										"Description: " + lr.get(j).getDescription() + "\n" +
         										"Ratings: " + lr.get(j).getRating() + "\n" +
         										"Avg. Price: " + lr.get(j).getAvgPrice());
+        						idArray.add(lr.get(i).getR_id().toString().trim());
         					}
         				}
     				}
@@ -243,6 +245,7 @@ public class SelectBrowseOperationActivity extends Activity
 								"Cuisine Type: "+lr.get(i).getCuisineType() + "\n" +
 								"Rating: " + lr.get(i).getRating() + "\n"+
 								"Avg. Price: " + lr.get(i).getAvgPrice());
+    					idArray.add(lr.get(i).getR_id().toString().trim());
     				}
 					displayList();
 
@@ -264,6 +267,7 @@ public class SelectBrowseOperationActivity extends Activity
     											"Description: " + lr.get(j).getDescription() + "\n" +
     											"Cuisine Type: "+lr.get(j).getCuisineType() + "\n" +
     											"Avg. Price: " + lr.get(j).getAvgPrice());
+    							idArray.add(lr.get(i).getR_id().toString().trim());
     						}	
         				}
     					if(temp != 1)
@@ -288,6 +292,7 @@ public class SelectBrowseOperationActivity extends Activity
     											"Description: " + lr.get(j).getDescription() + "\n" +
     											"Cuisine Type: "+lr.get(j).getCuisineType() + "\n" +
     											"Rating: " + lr.get(j).getRating() + "\n");
+    							idArray.add(lr.get(i).getR_id().toString().trim());
     						}
     					}		
     				}
@@ -319,8 +324,9 @@ public class SelectBrowseOperationActivity extends Activity
 				TextView text1 = (TextView)viewClicked;
 				
 				Intent intent = new Intent(SelectBrowseOperationActivity.this, RestaurantPage.class);
-				String[] separated = text1.getText().toString().split("\nDescription");
-				intent.putExtra("Rname",separated[0]);
+				//String[] separated = text1.getText().toString().split("\nDescription");
+				intent.putExtra("R_id",idArray.get(position).toString());
+				System.out.println(":::::::::::::::::::::::"+position);
 				// for recommendation page: add counter to each restaurant 
 				 
 

@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <RatingBar
@@ -33,7 +32,6 @@
         android:layout_below="@+id/title"
         android:layout_marginTop="14dp"
         android:gravity="left"
-        android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
@@ -44,7 +42,6 @@
         android:layout_below="@+id/cuisinetype"
         android:layout_marginTop="37dp"
         android:gravity="left"
-        android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
@@ -55,7 +52,6 @@
         android:layout_below="@+id/description"
         android:layout_marginTop="31dp"
         android:gravity="left"
-        android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <Button

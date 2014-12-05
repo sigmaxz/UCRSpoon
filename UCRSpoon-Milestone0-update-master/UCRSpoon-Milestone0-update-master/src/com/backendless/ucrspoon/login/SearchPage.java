@@ -26,6 +26,8 @@ public class SearchPage extends Activity{
 	private String search_input, radio_choice;
 	//private List<Restaurant> result= new ArrayList<Restaurant>();
     private List<String> StringArray = new ArrayList<String>();
+    private List<Restaurant>lr;
+    private String R_id;
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
@@ -58,7 +60,7 @@ public class SearchPage extends Activity{
 		   public void handleResponse( BackendlessCollection<Restaurant> response )
 		   {
 		     super.handleResponse( response );
-		     List<Restaurant>lr = response.getCurrentPage();
+		     lr = response.getCurrentPage();
 		     
 		     if(lr.size()>0)
 		     {
@@ -213,7 +215,16 @@ public class SearchPage extends Activity{
 				
 				Intent intent = new Intent(SearchPage.this, RestaurantPage.class);
 				String[] separated = text1.getText().toString().split("\n");
-				intent.putExtra("Rname",separated[0]);
+				
+				for(int i = 0; i < lr.size(); i++)
+		    	 {
+					if(separated[0].equals(lr.get(i).getRname()))
+		    		 {
+						R_id = lr.get(i).getR_id().toString();
+		    		 }
+		    	 }
+				intent.putExtra("R_id",R_id);
+				System.out.println(R_id);
 				//Toast.makeText(NearbyRestaurant.this, separated[2], Toast.LENGTH_LONG).show();
 				startActivity (intent);
 					
