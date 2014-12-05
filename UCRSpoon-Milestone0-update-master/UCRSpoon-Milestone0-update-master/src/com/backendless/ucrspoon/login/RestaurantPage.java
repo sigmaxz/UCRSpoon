@@ -114,7 +114,25 @@ int sid;
 				
 			}
 		});   
-		
+        /*
+        Button message_button = (Button)findViewById(R.id.messageRestaurant);
+        message_button.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			if(! Backendless.UserService.isValidLogin())
+			{
+				showToast("Login required");
+				return;
+			}
+			R_id = ;
+			Intent i = new Intent(v.getContext(), MessageActivity.class);
+			
+			startActivity (i);
+				// TODO Auto-generated method stub
+				
+			}
+		});*/
 		
 				whereClause = "R_id = '" +R_id+ "'" ; 
 				BackendlessDataQuery dataQuery = new BackendlessDataQuery();
