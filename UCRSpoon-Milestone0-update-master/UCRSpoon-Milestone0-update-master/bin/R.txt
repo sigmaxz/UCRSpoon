@@ -25,7 +25,7 @@ int drawable pic2 0x7f020004
 int id BrowseButton 0x7f080042
 int id GoBackButton 0x7f080022
 int id ImageSwitcher1 0x7f080031
-int id LogOutButton 0x7f08007e
+int id LogOutButton 0x7f08007c
 int id NearByButton 0x7f080043
 int id Order 0x7f08000e
 int id RText_1 0x7f080024
@@ -39,7 +39,7 @@ int id Rimage_3 0x7f080027
 int id Rimage_4 0x7f080029
 int id SearchButton 0x7f080044
 int id acReview 0x7f08001a
-int id action_settings 0x7f08007f
+int id action_settings 0x7f08007d
 int id add 0x7f08002e
 int id addFriendField 0x7f080030
 int id avgPrice 0x7f080019
@@ -64,14 +64,14 @@ int id emailField 0x7f08004f
 int id entitiesList 0x7f080076
 int id envonField 0x7f08005e
 int id friendListView 0x7f08002f
-int id friend_list_button 0x7f08007c
+int id friend_list_button 0x7f08007a
 int id gDes 0x7f080034
 int id gal 0x7f08001b
 int id gallery1 0x7f080032
 int id identityField 0x7f080038
 int id imageSwitcher 0x7f080033
 int id inboxListView 0x7f080035
-int id inbox_button 0x7f08007d
+int id inbox_button 0x7f08007b
 int id input_field 0x7f080067
 int id input_partySize 0x7f080009
 int id itemName 0x7f080037
@@ -103,7 +103,6 @@ int id property 0x7f08004a
 int id propertyHint 0x7f08002b
 int id propertyName 0x7f080075
 int id rateB 0x7f08001c
-int id rate_button 0x7f08007b
 int id rate_rest 0x7f08004c
 int id rate_submit 0x7f08004e
 int id rate_val 0x7f08004d
@@ -120,7 +119,6 @@ int id restorePasswordButton 0x7f080056
 int id retrieveOptionsList 0x7f08006f
 int id retrieveTitle 0x7f08006e
 int id review_2button 0x7f08005a
-int id review_button 0x7f08007a
 int id review_check 0x7f08005b
 int id rsview 0x7f08005c
 int id runCodeButton 0x7f080063

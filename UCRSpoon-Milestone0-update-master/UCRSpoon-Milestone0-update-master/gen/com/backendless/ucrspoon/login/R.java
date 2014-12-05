@@ -50,7 +50,7 @@ public final class R {
         public static final int BrowseButton=0x7f080042;
         public static final int GoBackButton=0x7f080022;
         public static final int ImageSwitcher1=0x7f080031;
-        public static final int LogOutButton=0x7f08007e;
+        public static final int LogOutButton=0x7f08007c;
         public static final int NearByButton=0x7f080043;
         public static final int Order=0x7f08000e;
         public static final int RText_1=0x7f080024;
@@ -64,7 +64,7 @@ public final class R {
         public static final int Rimage_4=0x7f080029;
         public static final int SearchButton=0x7f080044;
         public static final int acReview=0x7f08001a;
-        public static final int action_settings=0x7f08007f;
+        public static final int action_settings=0x7f08007d;
         public static final int add=0x7f08002e;
         public static final int addFriendField=0x7f080030;
         public static final int avgPrice=0x7f080019;
@@ -89,14 +89,14 @@ public final class R {
         public static final int entitiesList=0x7f080076;
         public static final int envonField=0x7f08005e;
         public static final int friendListView=0x7f08002f;
-        public static final int friend_list_button=0x7f08007c;
+        public static final int friend_list_button=0x7f08007a;
         public static final int gDes=0x7f080034;
         public static final int gal=0x7f08001b;
         public static final int gallery1=0x7f080032;
         public static final int identityField=0x7f080038;
         public static final int imageSwitcher=0x7f080033;
         public static final int inboxListView=0x7f080035;
-        public static final int inbox_button=0x7f08007d;
+        public static final int inbox_button=0x7f08007b;
         public static final int input_field=0x7f080067;
         public static final int input_partySize=0x7f080009;
         public static final int itemName=0x7f080037;
@@ -128,7 +128,6 @@ public final class R {
         public static final int propertyHint=0x7f08002b;
         public static final int propertyName=0x7f080075;
         public static final int rateB=0x7f08001c;
-        public static final int rate_button=0x7f08007b;
         public static final int rate_rest=0x7f08004c;
         public static final int rate_submit=0x7f08004e;
         public static final int rate_val=0x7f08004d;
@@ -145,7 +144,6 @@ public final class R {
         public static final int retrieveOptionsList=0x7f08006f;
         public static final int retrieveTitle=0x7f08006e;
         public static final int review_2button=0x7f08005a;
-        public static final int review_button=0x7f08007a;
         public static final int review_check=0x7f08005b;
         public static final int rsview=0x7f08005c;
         public static final int runCodeButton=0x7f080063;
