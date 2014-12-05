@@ -30,8 +30,7 @@ public class LoginActivity extends Activity
     initUI();
 
     Backendless.setUrl( Defaults.SERVER_URL );
-    Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
-
+    //Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
     Backendless.UserService.isValidLogin( new DefaultCallback<Boolean>( this )
     {
       @Override
@@ -50,7 +49,21 @@ public class LoginActivity extends Activity
               {
                 super.handleResponse( currentUser );
                 Backendless.UserService.setCurrentUser( currentUser );
-                startActivity( new Intent( getBaseContext(), LoginSuccessActivity.class ) );
+                if((Boolean) currentUser.getProperty("isRestaurant"))
+                {
+                	//User is a restaurant
+                	Intent intent = new Intent( LoginActivity.this, LoggedIn_Restaurant.class);
+                	intent.putExtra("R_id",currentUser.getProperty("R_id").toString());
+                	startActivity(intent);
+                }
+                else
+                {
+                	//User is a customer
+                	Intent intent = new Intent( getBaseContext(), UserPage.class);
+                	intent.putExtra("name",currentUser.getProperty("name").toString());
+                	startActivity(intent);
+                }
+               
                 finish();
               }
             } );
@@ -126,14 +139,14 @@ public class LoginActivity extends Activity
         if((Boolean) backendlessUser.getProperty("isRestaurant"))
         {
         	//User is a restaurant
-        	Intent intent = new Intent( LoginActivity.this, LoggedIn_Restaurant.class);
+        	Intent intent = new Intent( LoginActivity.this,LoggedIn_Restaurant.class);
         	intent.putExtra("R_id", backendlessUser.getProperty("R_id").toString());
         	startActivity(intent);
         }
         else
         {
         	//User is a customer
-        	Intent intent = new Intent( LoginActivity.this, LoginSuccessActivity.class);
+        	Intent intent = new Intent( LoginActivity.this, UserPage.class);
         	intent.putExtra("name",backendlessUser.getProperty("name").toString());
         	startActivity(intent);
         }

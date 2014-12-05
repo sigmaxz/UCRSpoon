@@ -41,7 +41,7 @@ public class RateActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.rate);
 	    Backendless.setUrl( Defaults.SERVER_URL ); 
-		Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
+		//Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
 
 		initUI();
 		

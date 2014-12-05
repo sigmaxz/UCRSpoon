@@ -13,7 +13,7 @@ public class Recommandation extends Activity {
 	    setContentView(R.layout.search_list);
 	    
 	    Backendless.setUrl( Defaults.SERVER_URL );
-	    Backendless.initApp( getBaseContext(), Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
+	    //Backendless.initApp( getBaseContext(), Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
 	
 	
 	  }

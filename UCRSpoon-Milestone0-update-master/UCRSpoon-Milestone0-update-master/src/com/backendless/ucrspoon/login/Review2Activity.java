@@ -43,7 +43,7 @@ public class Review2Activity extends Activity{
 	{
 		super.onCreate(savedInstanceState);
 	    Backendless.setUrl( Defaults.SERVER_URL ); 
-		Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
+		//Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
 		setContentView(R.layout.review_valid);
 		
 		initUI();
