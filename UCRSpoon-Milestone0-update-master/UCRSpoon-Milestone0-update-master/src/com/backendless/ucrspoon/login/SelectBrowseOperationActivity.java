@@ -106,7 +106,7 @@ public class SelectBrowseOperationActivity extends Activity
     	
     	
     	Review.findAsync( query, new DefaultCallback<BackendlessCollection<Review>>( SelectBrowseOperationActivity.this )
-    			{
+    	{
     		@Override
     		public void handleResponse( BackendlessCollection<Review> response )
     		{

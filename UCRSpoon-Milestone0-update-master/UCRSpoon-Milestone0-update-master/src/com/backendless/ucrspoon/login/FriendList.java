@@ -34,6 +34,8 @@ public class FriendList extends Activity{
     String friends_id, user_name;
     private EditText friendNameField;
     private BackendlessUser user;
+    private String new_friends_id;
+    private Integer current_user_id;
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
@@ -50,20 +52,14 @@ public class FriendList extends Activity{
 		user = Backendless.UserService.CurrentUser();
 		friends_id = (String) user.getProperty("Friends");
 		user_name = (String) user.getProperty("name");
-		if(friends_id == null)
+		current_user_id = (Integer)user.getProperty("userID");
+		if(friends_id != null)
 		{
-			Toast.makeText(getApplicationContext(),"friends not found",
-   				 Toast.LENGTH_LONG).show();
-			finish();
-		}
-		else
-		{
-			System.out.println("1##########################"+friends_id);
 			StringArray = Arrays.asList(friends_id.split(","));
 			
 			BackendlessDataQuery query = new BackendlessDataQuery();
 				//query.setWhereClause("ID = "+s);
-				//System.out.println("##########################"+s);
+			System.out.println("##########################");
 			UsersName.findAsync( query, new DefaultCallback<BackendlessCollection<UsersName>>( FriendList.this ){
 				@Override
 				public void handleResponse( BackendlessCollection<UsersName> response )
@@ -89,10 +85,9 @@ public class FriendList extends Activity{
 			    				 Toast.LENGTH_LONG).show();
 				    }
 				    
-				    if(NameArray.size() > 0)
-				    {
-				    	displayList();
-				    }
+				    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   1");
+				    displayList();
+				    
 				    
 				    
 				    
@@ -103,9 +98,14 @@ public class FriendList extends Activity{
 					  return;
 				}
 			});
-			
+		}
+		else
+		{
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   1");
 			displayList();
 		}
+			
+		
 		
 	}
 	private void displayList()
@@ -151,14 +151,15 @@ public class FriendList extends Activity{
 	public void onAddFriendClicked()
 	  {
 		friendNameField = (EditText)findViewById(R.id.addFriendField);
-		String friendName = friendNameField.getText().toString().trim();
-		if(friendName.isEmpty())
+		String Name = friendNameField.getText().toString().trim();
+		if(Name.isEmpty())
 		{
 			Toast.makeText(getApplicationContext(),"input field cannot be empty",
    				 Toast.LENGTH_LONG).show();
-		     return;
+		    return;
 		}
-		String whereClause = "name = '"+ friendName + "'"; 
+		
+		String whereClause = "name = '"+ Name + "'"; 
 		 BackendlessDataQuery dataQuery = new BackendlessDataQuery();
 		 dataQuery.setWhereClause( whereClause );
 		 UsersName.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<UsersName>>() 
@@ -166,6 +167,7 @@ public class FriendList extends Activity{
 				@Override
 				public void handleResponse( BackendlessCollection<UsersName> response )
 				{
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   2");
 					List<UsersName> lr = response.getData();
 					if(lr.size() < 1){
 						Toast.makeText(getApplicationContext(),"name not found",
@@ -181,7 +183,34 @@ public class FriendList extends Activity{
 					}
 					else
 					{
-						String new_friends_id = friends_id.trim() + "," + friendName.getID();
+						if(current_user_id == (Integer)friendName.getID())
+						{
+							Toast.makeText(getApplicationContext(),"you cant add youself",
+					   				 Toast.LENGTH_LONG).show();
+							return;
+						}
+						for(int i = 0; i < StringArray.size(); i++)
+						{
+							if(Integer.parseInt(StringArray.get(i)) == (Integer)friendName.getID())
+							{
+								Toast.makeText(getApplicationContext(),"already in friends list",
+						   				 Toast.LENGTH_LONG).show();
+								return;
+							}
+							
+							
+						}
+						
+						if(friends_id == null)
+						{System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   5");
+							new_friends_id = friendName.getID().toString();
+							
+						}
+						else
+						{System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   6");
+							new_friends_id = friends_id.trim() + "," + friendName.getID();
+							
+						}
 						user.setProperty("Friends", new_friends_id);
 						Backendless.UserService.update( user, new AsyncCallback<BackendlessUser>() 
 						{
