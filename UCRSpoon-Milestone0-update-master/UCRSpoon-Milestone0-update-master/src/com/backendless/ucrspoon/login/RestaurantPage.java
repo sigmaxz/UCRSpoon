@@ -32,6 +32,8 @@ String scuisinetype;
 String savgPrice;
 String whereClause;
 int sid;
+double lat;
+double longt;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,23 @@ int sid;
 			i.putExtra("sid", sid);
 			startActivity (i);
 			finish();
+				// TODO Auto-generated method stub
+				
+			}
+		});
+        
+        Button map_button = (Button)findViewById(R.id.mapb);
+        map_button.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			Intent i = new Intent(v.getContext(), MapPane.class);
+			//i.putExtra("sid", sid);
+			i.putExtra("lat", lat);
+			i.putExtra("longt", longt);
+			i.putExtra("rn", sname);
+			i.putExtra("rd", sdescription);
+			startActivity (i);
 				// TODO Auto-generated method stub
 				
 			}
@@ -140,6 +159,10 @@ int sid;
 							cuisinetype.setText("Cuisine Type: " +restaurant.getCuisineType());
 							avgPrice.setText("Avg. Price: " +String.format("%.2f",restaurant.getAvgPrice()));
 							sid = restaurant.getR_id();
+							lat = restaurant.getLatitude();
+							longt = restaurant.getLongitude();
+							sname = restaurant.getRname();
+							sdescription = restaurant.getDescription();
 							
 							RatingBar rtb = (RatingBar)findViewById(R.id.ratingBar1);
 							rtb.setRating(restaurant.getRating());

@@ -90,4 +90,15 @@
 	    android:layout_alignRight="@+id/rateB"
 	    android:text="Order" />
 
+	<Button
+	    android:id="@+id/mapb"
+	    style="?android:attr/buttonStyleSmall"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBaseline="@+id/acReview"
+	    android:layout_alignBottom="@+id/acReview"
+	    android:layout_toLeftOf="@+id/rateB"
+	    android:layout_toRightOf="@+id/acReview"
+	    android:text="@string/map" />
+
 </RelativeLayout>
