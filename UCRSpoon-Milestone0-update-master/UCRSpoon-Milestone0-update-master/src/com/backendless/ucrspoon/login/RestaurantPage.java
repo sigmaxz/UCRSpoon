@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ String sdescription;
 String scuisinetype;
 String savgPrice;
 String whereClause;
+String recipient;
 int sid;
 
 	@Override
@@ -114,7 +116,7 @@ int sid;
 				
 			}
 		});   
-        /*
+        
         Button message_button = (Button)findViewById(R.id.messageRestaurant);
         message_button.setOnClickListener(new View.OnClickListener() {
 			
@@ -125,14 +127,41 @@ int sid;
 				showToast("Login required");
 				return;
 			}
-			R_id = ;
-			Intent i = new Intent(v.getContext(), MessageActivity.class);
+			String whereClause = "R_id = '"+ R_id+ "'"; 
 			
-			startActivity (i);
+			 BackendlessDataQuery dataQuery = new BackendlessDataQuery();
+			 dataQuery.setWhereClause( whereClause );
+			 Restaurant.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<Restaurant>>() 
+			{
+					 @Override
+					 public void handleResponse( BackendlessCollection<Restaurant> response )
+					 {
+						 List<Restaurant> lr = response.getData();
+						  if(lr.size() < 1){
+							  showToast( " Restaurant not found for update." );
+							  return;
+						  }
+						  BackendlessUser user = Backendless.UserService.CurrentUser();
+						  String sender = (String) user.getProperty("name");
+						  Restaurant firstRestaurant = response.getCurrentPage().get( 0 );
+						  recipient = firstRestaurant.getRname();
+						
+						  Intent i = new Intent(RestaurantPage.this, MessageActivity.class);
+						  i.putExtra("name", sender);
+						  i.putExtra("recipient", recipient);
+						  startActivity (i);
+					 }
+					 @Override
+						public void handleFault(BackendlessFault fault) { 
+							// TODO Auto-generated method stub
+							  return;
+						}
+					 
+			});
 				// TODO Auto-generated method stub
 				
 			}
-		});*/
+		});
 		
 				whereClause = "R_id = '" +R_id+ "'" ; 
 				BackendlessDataQuery dataQuery = new BackendlessDataQuery();
