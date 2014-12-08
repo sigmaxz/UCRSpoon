@@ -58,12 +58,12 @@
                 android:layout_marginLeft="@dimen/dp4"/>
         
         <Button
-            	android:layout_width="fill_parent"
-                android:layout_height="@dimen/dp48"
-                android:text="@string/near_by_button"
-                android:id="@+id/NearByButton"
-                android:textSize="@dimen/text_medium"
-                android:layout_marginLeft="@dimen/dp4"/>
+            android:id="@+id/NearByButton"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dp48"
+            android:layout_marginLeft="@dimen/dp4"
+            android:text="Nearby"
+            android:textSize="@dimen/text_medium" />
 
         <Button
             	android:layout_width="fill_parent"

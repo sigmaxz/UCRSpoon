@@ -7,25 +7,13 @@
     android:paddingRight="16dp"
     tools:context=".MainPage" >
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="96dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="@string/login_label" />
-
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="96dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:text="@string/register_label" />
-
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_marginTop="@dimen/dp48"
+        android:layout_alignLeft="@+id/register_button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="23dp"
         android:gravity="left"
         android:orientation="vertical" >
 
@@ -42,20 +30,42 @@
             android:layout_width="fill_parent"
             android:layout_height="@dimen/dp40"
             android:layout_marginLeft="@dimen/dp4"
-            android:text="@string/near_by_button"
+            android:text="Nearby"
             android:textSize="@dimen/text_medium" />
+
         <Button
-                android:layout_width="fill_parent"
-                android:layout_height="@dimen/dp40"
-                android:text="@string/search_button"
-                android:id="@+id/SearchButton"
-                android:textSize="@dimen/text_medium"
-                android:layout_marginLeft="@dimen/dp4"/>
-        
+            android:id="@+id/SearchButton"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dp40"
+            android:layout_marginLeft="@dimen/dp4"
+            android:text="@string/search_button"
+            android:textSize="@dimen/text_medium" />
     </LinearLayout>
 
-   
+    <ImageView
+        android:id="@+id/AppLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_above="@+id/linearLayout1"
+        android:layout_alignRight="@+id/login_button"
+        android:layout_below="@+id/register_button"
+        android:src="@drawable/ucrspoon" />
 
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:text="@string/register_label" />
 
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/AppLogo"
+        android:layout_alignParentRight="true"
+        android:text="@string/login_label" />
 
 </RelativeLayout>

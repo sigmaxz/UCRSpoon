@@ -43,13 +43,14 @@ public class Odering extends Activity {
 		//Retrieve extras
 		Bundle extras = getIntent().getExtras();
 		if(extras != null) {
+			Log.v("DFD","DD1");
 			R_id = extras.getString("R_id");
 		}
 		
 		//Set
 		EditText input_partySize = (EditText)findViewById(R.id.input_partySize);
 		input_partySize.setText("1");
-		
+		Log.v("DFD","DD2");
 		whereClause = "R_id = '"+R_id+ "'";
 		BackendlessDataQuery dataQuery = new BackendlessDataQuery();
 		dataQuery.setWhereClause( whereClause );
@@ -60,16 +61,18 @@ public class Odering extends Activity {
 			  {	
 				  List<Restaurant> lr = response.getData(); 
 				  if(lr.size() < 1){
-					  
+					  Log.v("DFD","DD3");
 					  return;
-				  }
+				  }Log.v("DFD","DD4");
 				 String TableLocations_unparsed = lr.get(0).getTableLocations();
 				 if(TableLocations_unparsed.isEmpty())
 				 {
 					 //Do Nothing
+					 Log.v("DFD","Empyt");
 				 }
 				 else
 				 {
+					 Log.v("DFD","Not EMpty");
 					String[] tableLocations = TableLocations_unparsed.split(";");
 					// tableLocations = 
 					for (int i = 0; i < tableLocations.length; i++)
@@ -96,16 +99,17 @@ public class Odering extends Activity {
 				  return;
 			}
 		});
-
+		Log.v("DFD","D5D");
 		 Button buttonNext = (Button)findViewById(R.id.button_Next);
+		 Log.v("DFD","11");
 	        buttonNext.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
-					
+					Log.v("DFD","12");
 					TimePicker time = (TimePicker)findViewById(R.id.timePicker_diningTime);
 					//Check if time entered is valid
-					
+					Log.v("DFD","6");
 					//Get Hour
 					String hour;
 					if(time.getCurrentHour() % 12 == 0)
@@ -115,7 +119,7 @@ public class Odering extends Activity {
 					else
 					{
 						hour = String.valueOf(time.getCurrentHour() % 12);
-					}
+					}Log.v("DFD","7");
 					//Format minute so that it displays a 0 before values less than 10. Example 09 instead of 9.
 					String minute;
 					if(time.getCurrentMinute() < 10)
@@ -126,7 +130,7 @@ public class Odering extends Activity {
 					{
 						minute = String.valueOf(time.getCurrentMinute());
 					}
-
+					Log.v("DFD","8");
 					//Get am or pm
 					String am_or_pm;
 					if(time.getCurrentHour() >= 12)
@@ -137,7 +141,7 @@ public class Odering extends Activity {
 					{
 						am_or_pm = "am";
 					}
-					
+					Log.v("DFD","9");
 					String partySize;
 					EditText partySizeTmp = (EditText)findViewById(R.id.input_partySize);
 					if(partySizeTmp.getText().toString().isEmpty() || partySizeTmp.getText().toString() == "0")
@@ -150,7 +154,7 @@ public class Odering extends Activity {
 					{
 						partySize = partySizeTmp.getText().toString();
 					}
-					
+					Log.v("DFD","10");
 					Intent intent = new Intent(v.getContext(), Ordering2.class);
 					Bundle bundle = new Bundle();
 					intent.putExtra("time", hour + ":" + minute + " " + am_or_pm );

@@ -3,29 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <EditText
-        android:id="@+id/input_field"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="15dp"
-        android:ems="10" />
-
     <RadioGroup
         android:id="@+id/search_radio_group1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_button2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp" >
+        android:layout_marginTop="28dp" >
 
         <RadioButton
             android:id="@+id/search_radio0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Regualer" />
+            android:text="Regular" />
 
         <RadioButton
             android:id="@+id/search_radio1"
@@ -40,13 +31,25 @@
             android:text="Rating" />
     </RadioGroup>
 
+    <EditText
+        android:id="@+id/input_field"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
     <Button
         android:id="@+id/search_button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/input_field"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="16dp"
         android:text="Search" />
 
 </RelativeLayout>
