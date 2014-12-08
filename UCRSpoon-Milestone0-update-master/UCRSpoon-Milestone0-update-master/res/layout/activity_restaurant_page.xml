@@ -90,4 +90,13 @@
 	    android:layout_alignRight="@+id/rateB"
 	    android:text="Order" />
 
+	<Button
+	    android:id="@+id/mapb"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/button_Order2"
+	    android:layout_alignLeft="@+id/avgPrice"
+	    android:layout_alignRight="@+id/button_Order2"
+	    android:text="@string/mapit" />
+
 </RelativeLayout>

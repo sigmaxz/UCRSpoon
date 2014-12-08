@@ -86,4 +86,5 @@
 	<string name="FriendList">Friends</string>
 	<string name="Inbox">Messages</string>
 	<string name="recommendation">Recommendation</string>
+	<string name="mapit">Map it</string>
 </resources>

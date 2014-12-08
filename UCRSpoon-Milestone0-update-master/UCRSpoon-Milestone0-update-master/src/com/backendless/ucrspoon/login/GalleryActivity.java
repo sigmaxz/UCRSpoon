@@ -91,7 +91,9 @@ public class GalleryActivity extends Activity{
 									  connection.setDoInput( true );
 									  connection.connect();
 									  InputStream input = connection.getInputStream();
-									  message.obj = BitmapFactory.decodeStream( input );
+									  BitmapFactory.Options options = new BitmapFactory.Options();
+									  options.inSampleSize = 3;
+									  message.obj = BitmapFactory.decodeStream( input, null, options );
 									  
 								  }
 								  catch( Exception e )
