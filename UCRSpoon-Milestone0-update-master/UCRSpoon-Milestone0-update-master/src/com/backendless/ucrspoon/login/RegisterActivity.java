@@ -43,7 +43,7 @@ public class RegisterActivity extends Activity
     setContentView( R.layout.register );
     //
     Backendless.setUrl( Defaults.SERVER_URL );
-    //Backendless.initApp( getBaseContext(), Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
+    Backendless.initApp( getBaseContext(), Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
 	 BackendlessDataQuery query = new BackendlessDataQuery();	 
 	 UsersPopulation.findAsync( query, new DefaultCallback<BackendlessCollection<UsersPopulation>>( RegisterActivity.this )
 	 {

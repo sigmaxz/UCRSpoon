@@ -17,7 +17,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -32,7 +31,6 @@ String sdescription;
 String scuisinetype;
 String savgPrice;
 String whereClause;
-String recipient;
 int sid;
 
 	@Override
@@ -41,7 +39,6 @@ int sid;
 		setContentView(R.layout.activity_restaurant_page);
 	
 		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
-		//Backendless.initApp( RestaurantPage.this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
 		//Retrieve extras
 		Bundle extras = getIntent().getExtras();
 		if(extras != null) {
@@ -116,52 +113,7 @@ int sid;
 				
 			}
 		});   
-        
-        Button message_button = (Button)findViewById(R.id.messageRestaurant);
-        message_button.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-			if(! Backendless.UserService.isValidLogin())
-			{
-				showToast("Login required");
-				return;
-			}
-			String whereClause = "R_id = '"+ R_id+ "'"; 
-			
-			 BackendlessDataQuery dataQuery = new BackendlessDataQuery();
-			 dataQuery.setWhereClause( whereClause );
-			 Restaurant.findAsync( dataQuery, new AsyncCallback<BackendlessCollection<Restaurant>>() 
-			{
-					 @Override
-					 public void handleResponse( BackendlessCollection<Restaurant> response )
-					 {
-						 List<Restaurant> lr = response.getData();
-						  if(lr.size() < 1){
-							  showToast( " Restaurant not found for update." );
-							  return;
-						  }
-						  BackendlessUser user = Backendless.UserService.CurrentUser();
-						  String sender = (String) user.getProperty("name");
-						  Restaurant firstRestaurant = response.getCurrentPage().get( 0 );
-						  recipient = firstRestaurant.getRname();
-						
-						  Intent i = new Intent(RestaurantPage.this, MessageActivity.class);
-						  i.putExtra("name", sender);
-						  i.putExtra("recipient", recipient);
-						  startActivity (i);
-					 }
-					 @Override
-						public void handleFault(BackendlessFault fault) { 
-							// TODO Auto-generated method stub
-							  return;
-						}
-					 
-			});
-				// TODO Auto-generated method stub
-				
-			}
-		});
+		
 		
 				whereClause = "R_id = '" +R_id+ "'" ; 
 				BackendlessDataQuery dataQuery = new BackendlessDataQuery();
@@ -190,6 +142,19 @@ int sid;
 							
 							RatingBar rtb = (RatingBar)findViewById(R.id.ratingBar1);
 							rtb.setRating(restaurant.getRating());
+//Susan added this...................................................................................................
+							   if(restaurant.getBrowseCounter() != null)
+							   {
+								   restaurant.setBrowseCounter(restaurant.getBrowseCounter()+1);
+							   }
+							   restaurant.saveAsync(new DefaultCallback<Restaurant>(RestaurantPage.this)
+										  {
+								   @Override
+									public void handleFault(BackendlessFault arg0) {
+										// TODO Auto-generated method stub
+									}
+								   });
+	//...................................................................................................................
 
 						    
 						   return;

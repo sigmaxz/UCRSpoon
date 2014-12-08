@@ -45,6 +45,8 @@
         <activity android:name=".MessageActivity" />
         <activity android:name="InboxPage" />
         <activity android:name=".GalleryActivity" />
+        <activity android:name=".Recommendation" />
+        
         <activity
             android:name=".NearbyRestaurant"
             android:label="Restaurants Near You" >

@@ -16,56 +16,41 @@
         android:layout_alignParentTop="true"
         android:text="Orders" />
 
+    <TextView
+        android:id="@+id/listTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_Orders"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/button_Orders"
+        android:layout_toRightOf="@+id/button_Orders"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
     <ListView
         android:id="@+id/list_DishCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button_LogOut"
         android:layout_alignLeft="@+id/listTitle"
         android:layout_below="@+id/listTitle" >
 
     </ListView>
 
-    <TextView
-        android:id="@+id/listTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button_Orders"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <Button
-        android:id="@+id/button_LogOut"
+        android:id="@+id/button_MSGs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/list_DishCategory"
-        android:text="Sign Out" />
-
-    <Button
-        android:id="@+id/button_deleteOrder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/list_DishCategory"
-        android:layout_alignParentBottom="true"
-        android:text="Delete Order" />
+        android:layout_alignTop="@+id/list_DishCategory"
+        android:layout_toLeftOf="@+id/list_DishCategory"
+        android:text="MSGs" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/listTitle"
-        android:layout_alignRight="@+id/list_DishCategory"
+        android:layout_alignLeft="@+id/button_Orders"
+        android:layout_below="@+id/button_MSGs"
+        android:layout_marginTop="116dp"
         android:text="Menu" />
-
-    <Button
-        android:id="@+id/button_MSGs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button_Orders"
-        android:layout_alignBottom="@+id/button_Orders"
-        android:layout_centerHorizontal="true"
-        android:text="MSGs" />
 
 </RelativeLayout>

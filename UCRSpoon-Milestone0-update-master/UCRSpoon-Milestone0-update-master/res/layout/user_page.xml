@@ -41,7 +41,7 @@
         android:gravity="left"
         android:orientation="vertical" >
             
-            <Button
+        <Button
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/dp48"
                 android:text="@string/search_button"
@@ -56,6 +56,12 @@
                 android:id="@+id/BrowseButton"
                 android:textSize="@dimen/text_medium"
                 android:layout_marginLeft="@dimen/dp4"/>
+
+        <Button
+            android:id="@+id/RecommendationButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recommendation" />
         
         <Button
             	android:layout_width="fill_parent"

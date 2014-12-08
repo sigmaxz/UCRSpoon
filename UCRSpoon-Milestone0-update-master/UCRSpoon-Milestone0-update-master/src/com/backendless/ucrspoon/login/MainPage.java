@@ -13,36 +13,28 @@ import android.widget.Button;
 
 
 public class MainPage extends Activity {
-	
-	//String currentUserId = Backendless.UserService.loggedInUser();   // get the current user ID 
-	
+		
 	 protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.main_pages);
+			Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
+			
+			if(Backendless.UserService.CurrentUser() == null)  // if its already logged in
+			{
+			    Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
+			}
+			
+			
 
-	        Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
-			Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
-	        
 	        Button login_button = (Button)findViewById(R.id.login_button);    // only records 
-	         login_button.setOnClickListener(new View.OnClickListener() {
+	        login_button.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {	
 					if(Backendless.UserService.CurrentUser() != null)  // if its already logged in
 					{
-						 if((Boolean)Backendless.UserService.CurrentUser().getProperty("isRestaurant"))
-					        {
-					        	//User is a restaurant
-					        	Intent intent = new Intent(getBaseContext(), LoggedIn_Restaurant.class);
-					        	intent.putExtra("R_id", Backendless.UserService.CurrentUser().getProperty("R_id").toString());
-					        	startActivity(intent);
-					        }
-					        else
-					        {
-					        	//User is a customer
-					        	Intent intent = new Intent( getBaseContext(), UserPage.class);
-					        	intent.putExtra("name",Backendless.UserService.CurrentUser().getProperty("name").toString());
-					        	startActivity(intent);
-					        }
+						Intent i = new Intent(v.getContext(), UserPage.class);
+						startActivity(i);
+						
 					}
 					else
 					{
@@ -93,12 +85,4 @@ public class MainPage extends Activity {
 	     	Intent searchIntent = new Intent(MainPage.this, SearchInput.class);
 	     	startActivity(searchIntent);	     	
 	     }
-	         
-                 
-	 
-	
-	
-
-	
-
 }

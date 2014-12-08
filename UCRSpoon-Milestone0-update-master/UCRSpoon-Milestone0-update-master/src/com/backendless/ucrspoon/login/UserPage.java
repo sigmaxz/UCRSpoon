@@ -84,6 +84,15 @@ public class UserPage extends Activity {
 				onMessagesButtonClicked();
 			}	
 		});
+	   
+	   Button RecommendationButton = (Button)findViewById(R.id.RecommendationButton);
+	   RecommendationButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				onRecommendationButtonClicked();
+			}	
+		});
         
 	  }   
 	  
@@ -122,6 +131,12 @@ public class UserPage extends Activity {
 	    private void onMessagesButtonClicked()
 	    {
 	    	Intent searchIntent = new Intent(UserPage.this, InboxPage.class);
+	    	startActivity(searchIntent);	    	
+	    }
+	    
+	    private void onRecommendationButtonClicked()
+	    {
+	    	Intent searchIntent = new Intent(UserPage.this, Recommendation.class);
 	    	startActivity(searchIntent);	    	
 	    }
 

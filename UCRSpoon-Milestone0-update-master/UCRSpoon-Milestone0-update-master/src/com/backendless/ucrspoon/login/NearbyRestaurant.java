@@ -48,9 +48,7 @@ public class NearbyRestaurant extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nearby_restaurant);
 		
-		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
-		//Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
-	
+		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init	
 		
 		 LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 		  LocationListener ll = new mylocationlistener(); 

@@ -85,4 +85,5 @@
     <string name="title_activity_order_confirmation_page">OrderConfirmationPage</string>
 	<string name="FriendList">Friends</string>
 	<string name="Inbox">Messages</string>
+	<string name="recommendation">Recommendation</string>
 </resources>

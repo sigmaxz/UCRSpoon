@@ -22,7 +22,7 @@ public class Browse extends Activity
 	  
 	  AlertDialog.Builder builder = new AlertDialog.Builder( Browse.this );
       builder.setTitle( "Browse by:" );
-      final String[] properties = { "All Restaurants","CuisineType", "Rating","AvgPrice", "Location","Review","Dish" };
+      final String[] properties = { "All Restaurants","CuisineType", "Rating","AvgPrice","Dish" };
       builder.setItems( properties, new DialogInterface.OnClickListener()
       {
         @Override
@@ -31,6 +31,7 @@ public class Browse extends Activity
           Intent nextIntent = new Intent(Browse.this, SelectBrowseOperationActivity.class );
           nextIntent.putExtra( "property", properties[ i ] );
           startActivity( nextIntent );
+          finish();
           dialogInterface.cancel();
         }
       } );
