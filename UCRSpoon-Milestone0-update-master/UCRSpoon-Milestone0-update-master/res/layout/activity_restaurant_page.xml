@@ -99,4 +99,14 @@
 	    android:layout_alignRight="@+id/button_Order2"
 	    android:text="@string/mapit" />
 
+	<Button
+	    android:id="@+id/messageRestaurant"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBaseline="@+id/rateB"
+	    android:layout_alignBottom="@+id/rateB"
+	    android:layout_toRightOf="@+id/acReview"
+	    android:minWidth="63dp"
+	    android:text="@string/message" />
+
 </RelativeLayout>

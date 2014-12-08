@@ -38,6 +38,7 @@ public class Odering extends Activity {
 		setContentView(R.layout.activity_odering);
 		
 		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
+		//Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );		
 
 		//Retrieve extras
 		Bundle extras = getIntent().getExtras();

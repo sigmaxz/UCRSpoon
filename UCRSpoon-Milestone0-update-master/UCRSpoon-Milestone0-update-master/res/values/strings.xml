@@ -87,4 +87,5 @@
 	<string name="Inbox">Messages</string>
 	<string name="recommendation">Recommendation</string>
 	<string name="mapit">Map it</string>
+	<string name="message">Message</string>
 </resources>

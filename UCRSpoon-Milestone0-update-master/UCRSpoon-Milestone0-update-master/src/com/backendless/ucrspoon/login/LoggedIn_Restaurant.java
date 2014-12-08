@@ -41,7 +41,7 @@ public class LoggedIn_Restaurant extends Activity {
 		setContentView(R.layout.activity_logged_in__restaurant);
 		
 		Backendless.setUrl( Defaults.SERVER_URL ); 
-		Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
+		//Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
 
 		//Retrieve extras
 		Bundle extras = getIntent().getExtras();
@@ -111,14 +111,24 @@ public class LoggedIn_Restaurant extends Activity {
 					});
 				}
 	      });
-	      
+	    /*  
 	      Button MSGs = (Button)findViewById(R.id.button_MSGs);    
 	        MSGs.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {	
 					title.setText("MSGs");
 				}
-				});
+				});*/
+	        
+	  	   Button MessagesButton = (Button)findViewById(R.id.button_MSGs);
+	 	   MessagesButton.setOnClickListener(new View.OnClickListener() {
+	 			
+	 			@Override
+	 			public void onClick(View v) {
+	 				onMessagesButtonClicked();
+	 			}	
+	 		});
+	 	   
 	        
 	       Button Menu = (Button)findViewById(R.id.button3);     
 	       Menu.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +139,13 @@ public class LoggedIn_Restaurant extends Activity {
 					startActivity(intent);
 				}
 				});
-		
+	       Button logout = (Button)findViewById(R.id.button_LogOut);     
+	       logout.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					onLogoutButtonClicked();
+				}
+				});
 		
 		//registerClickCallback();
 	}
@@ -204,5 +220,23 @@ public class LoggedIn_Restaurant extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+    private void onLogoutButtonClicked()   // log out button clicked
+    {
+      Backendless.UserService.logout( new DefaultCallback<Void>( this )
+      {
+        @Override
+        public void handleResponse( Void response )
+        {
+          startActivity( new Intent(LoggedIn_Restaurant.this, MainPage.class ) );
+          finish();
+        }
+      } );    
+    }
+    private void onMessagesButtonClicked()
+    {
+    	Intent searchIntent = new Intent(LoggedIn_Restaurant.this, InboxPage.class);
+    	startActivity(searchIntent);	    	
+    }
+    
 }
 

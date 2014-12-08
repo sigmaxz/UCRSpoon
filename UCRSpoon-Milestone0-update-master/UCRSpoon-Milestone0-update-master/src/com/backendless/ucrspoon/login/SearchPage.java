@@ -32,8 +32,9 @@ public class SearchPage extends Activity{
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search_list);
-		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
-
+		
+		Backendless.setUrl( Defaults.SERVER_URL );
+	    
 	    searchDataBase();
 	    
 	}
