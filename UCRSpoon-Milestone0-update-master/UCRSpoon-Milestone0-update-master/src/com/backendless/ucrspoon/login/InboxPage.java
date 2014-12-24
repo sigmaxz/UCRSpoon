@@ -62,7 +62,7 @@ public class InboxPage extends Activity{
 				    	for(int i = 0; i < lr.size(); i++)
 				    	{
 				    		System.out.println("##########################   :"+lr.get(i).getRecipient()+"'");
-				    		if(lr.get(i).getRecipient().toString().trim().equals(user_name.trim()))
+				    		if(lr.get(i).getRecipient().endsWith(user_name))
 				    		{
 				    			System.out.println("##########################   adddddddddddddddd");
 				    			StringArray.add("From: "+lr.get(i).getSender()+"\n"+
