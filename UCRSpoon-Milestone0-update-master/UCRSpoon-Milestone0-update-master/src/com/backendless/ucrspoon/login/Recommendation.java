@@ -131,7 +131,6 @@ public class Recommendation extends Activity {
 			list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 				@Override
 				public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id){
-					TextView text1 = (TextView)viewClicked;
 					
 					Intent intent = new Intent(Recommendation.this, RestaurantPage.class);
 					//String[] separated = text1.getText().toString().split("\nDescription");

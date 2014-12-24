@@ -1,6 +1,7 @@
 package com.backendless.ucrspoon.login;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -40,6 +41,9 @@ public class NearbyRestaurant extends Activity {
 	double latitude_min;
 	String[] restaurantlist;
 	String[] list_R_id;
+	//Susan added this....
+	  private List<String> idArray = new ArrayList<String>();
+	//
 	
 	
 	
@@ -48,7 +52,9 @@ public class NearbyRestaurant extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nearby_restaurant);
 		
-		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init	
+		Backendless.setUrl( Defaults.SERVER_URL ); // in case you didn't already do the init
+		//Backendless.initApp( this, Defaults.APPLICATION_ID, Defaults.SECRET_KEY, Defaults.VERSION );
+	
 		
 		 LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 		  LocationListener ll = new mylocationlistener(); 
@@ -113,6 +119,8 @@ public class NearbyRestaurant extends Activity {
 						  						"Cuisine Type: " +lr.get(i).getCuisineType() +"\n"+
 						  						"Ratings: " + lr.get(i).getRating() + "\n" +
 						  						"Avg. Price: " + lr.get(i).getAvgPrice() + "\n";
+							idArray.add(lr.get(i).getR_id().toString().trim());  //Susan added this...
+ 
 					  }
 						//Print out list
 						populateListView();
@@ -159,7 +167,9 @@ public class NearbyRestaurant extends Activity {
 					
 					Intent intent = new Intent(NearbyRestaurant.this, RestaurantPage.class);
 					//String[] separated = textView.getText().toString().split("\n");
-					intent.putExtra("R_id",list_R_id[position]);
+					//intent.putExtra("R_id",list_R_id[position]);    // Susan commented out this...
+					intent.putExtra("R_id",idArray.get(position).toString());   // Susan added this...
+
 					startActivity (intent);
 					
 				// TODO Auto-generated method stub

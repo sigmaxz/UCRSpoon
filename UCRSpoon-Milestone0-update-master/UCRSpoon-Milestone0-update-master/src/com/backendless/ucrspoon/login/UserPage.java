@@ -84,7 +84,9 @@ public class UserPage extends Activity {
 				onMessagesButtonClicked();
 			}	
 		});
-	   
+        
+	     
+
 	   Button RecommendationButton = (Button)findViewById(R.id.RecommendationButton);
 	   RecommendationButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -93,8 +95,9 @@ public class UserPage extends Activity {
 				onRecommendationButtonClicked();
 			}	
 		});
-        
+      
 	  }   
+
 	  
         private void onLogoutButtonClicked()   // log out button clicked
         {
